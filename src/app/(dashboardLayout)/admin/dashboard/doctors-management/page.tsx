@@ -27,7 +27,7 @@ const DoctorsManagementPage = async ({
     return (
         <div className="space-y-6">
             <DoctorsManagementHeader />
-            {/* <DoctorsFilters specialties={specialitiesResult?.data || []} /> */}
+            <DoctorsFilters specialties={specialitiesResult?.data || []} />
             <Suspense fallback={<TableSkeleton columns={10} rows={10} />}>
                 <DoctorsTable
                     doctors={doctorsResult.data}

@@ -27,9 +27,9 @@ import {
 } from "@/components/ui/select";
 import { Check, ChevronsUpDown, Filter, X } from "lucide-react";
 import { useDebounce } from "@/hooks/useDebounce";
-import { ISpecialty } from "@/types/specialities.interface";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState, useTransition } from "react";
+import { ISpecialty } from "../../../../../types/specialities.interface";
 
 interface DoctorsFiltersProps {
     specialties: ISpecialty[];
@@ -212,7 +212,7 @@ const DoctorsFilters = ({ specialties }: DoctorsFiltersProps) => {
                     }
                     disabled={isPending}
                 >
-                    <SelectTrigger className="w-[140px] h-10">
+                    <SelectTrigger className="w-35 h-10">
                         <SelectValue placeholder="Gender" />
                     </SelectTrigger>
                     <SelectContent>
@@ -228,7 +228,7 @@ const DoctorsFilters = ({ specialties }: DoctorsFiltersProps) => {
                     placeholder="Email"
                     value={emailInput}
                     onChange={(e) => setEmailInput(e.target.value)}
-                    className="w-[200px] h-10"
+                    className="w-50 h-10"
                     disabled={isPending}
                 />
 

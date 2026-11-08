@@ -1,6 +1,6 @@
-import { getSpeacialities } from "@/components/moduels/admin/specialitiesManagement";
 import DoctorRegistrationForm from "@/components/moduels/auth/DoctorRegistrationForm";
 import BrandLogo from "@/components/shared/BrandLogo";
+import { getSpeacialities } from "@/services/admin/specialitiesManagement";
 import Link from "next/link";
 
 
