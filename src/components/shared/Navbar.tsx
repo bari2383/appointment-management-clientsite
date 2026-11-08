@@ -28,7 +28,7 @@ const Navbar = async () => {
 
     const navItems = [
         {
-            href: "/doctors",
+            href: "/consultation/doctors",
             label: "Find Doctors",
         },
         {

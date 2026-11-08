@@ -34,4 +34,15 @@ export interface IDoctor {
         status: UserStatus;
     };
     doctorSpecialties?: DoctorSpecialty[];
+    schedule?: IDoctorSchedule[];
+}
+
+export interface IDoctorSchedule {
+    id: string;
+    startDateTime: string;
+    endDateTime: string;
+    isBooked: boolean;
+    doctorId: string;
+    createdAt: string;
+    updatedAt: string;
 }
