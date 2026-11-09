@@ -34,17 +34,17 @@ interface InfoItemProps {
 
 const InfoItem = ({ icon, label, value }: InfoItemProps) => {
     return (
-        <div className="group flex items-start gap-3.5 rounded-xl p-3 transition-colors duration-200 hover:bg-slate-50 dark:hover:bg-slate-800/50">
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-blue-100 bg-blue-50 text-blue-600 dark:border-blue-900/50 dark:bg-blue-950/50 dark:text-blue-400">
+        <div className="group flex items-start gap-4 rounded-tl-2xl rounded-br-2xl rounded-tr-md rounded-bl-md border border-blue-100/70 bg-blue-50/40 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-300 hover:bg-white hover:shadow-lg hover:shadow-blue-900/10 dark:border-slate-800 dark:bg-slate-800/40 dark:hover:border-sky-500/40 dark:hover:bg-slate-800/80">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-tl-2xl rounded-br-2xl rounded-tr-md rounded-bl-md bg-gradient-to-br from-[#1f6fe5] to-[#38a6f0] text-white shadow-lg shadow-blue-600/30 transition-all duration-300 group-hover:scale-105 group-hover:from-emerald-500 group-hover:to-emerald-400 group-hover:shadow-emerald-600/30">
                 {icon}
             </div>
 
             <div className="min-w-0 flex-1 space-y-1">
-                <p className="text-xs font-medium tracking-wide text-slate-500 dark:text-slate-400">
+                <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-400 dark:text-slate-500">
                     {label}
                 </p>
 
-                <p className="break-words text-sm font-semibold leading-relaxed text-slate-800 dark:text-slate-100">
+                <p className="break-words text-[15px] font-semibold leading-relaxed text-[#12326b] dark:text-slate-100">
                     {value || "Not specified"}
                 </p>
             </div>
@@ -62,18 +62,18 @@ const SectionHeader = ({
     description?: string;
 }) => {
     return (
-        <div className="flex items-start gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 dark:bg-blue-950/50 dark:text-blue-400">
+        <div className="flex items-start gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-tl-2xl rounded-br-2xl rounded-tr-md rounded-bl-md bg-gradient-to-br from-[#12326b] via-[#1f5fd0] to-[#2f8de8] text-white shadow-lg shadow-blue-700/30 ring-4 ring-blue-50 dark:ring-slate-800">
                 {icon}
             </div>
 
             <div className="space-y-1">
-                <h3 className="text-base font-bold tracking-tight text-slate-900 dark:text-white">
+                <h3 className="text-xl font-extrabold tracking-tight text-[#12326b] dark:text-white">
                     {title}
                 </h3>
 
                 {description && (
-                    <p className="text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+                    <p className="text-[13px] leading-relaxed text-slate-500 dark:text-slate-400">
                         {description}
                     </p>
                 )}
@@ -104,37 +104,37 @@ const DoctorProfileContent = ({ doctor }: DoctorProfileContentProps) => {
     }).format(appointmentFee);
 
     return (
-        <div className="w-full space-y-6">
+        <div className="w-full space-y-8 lg:space-y-10">
 
             {/* ================= PROFILE HEADER ================= */}
 
-            <Card className="overflow-hidden rounded-2xl border border-slate-200/80 bg-white py-0 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+            <Card className="relative overflow-hidden rounded-tl-[3rem] rounded-br-[3rem] rounded-tr-3xl rounded-bl-3xl border-0 bg-white py-0 shadow-[0_30px_80px_-20px_rgba(18,50,107,0.35)] ring-1 ring-blue-900/5 dark:bg-slate-900 dark:ring-white/10">
 
                 {/* Cover Background */}
 
-                <div className="relative h-32 overflow-hidden bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 sm:h-40">
+                <div className="relative h-44 overflow-hidden bg-gradient-to-br from-[#0b2150] via-[#1450b8] to-[#2f8de8] [clip-path:ellipse(85%_100%_at_50%_0%)] before:absolute before:-bottom-6 before:right-24 before:h-12 before:w-44 before:rounded-full before:bg-white/10 before:content-[''] after:absolute after:-bottom-[88px] after:right-40 after:h-44 after:w-12 after:rounded-full after:bg-white/10 after:content-[''] sm:h-56">
 
-                    <div className="absolute -right-16 -top-24 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
+                    <div className="absolute -right-10 -top-24 h-72 w-72 rounded-full bg-sky-300/30 blur-3xl" />
 
-                    <div className="absolute bottom-0 left-1/3 h-40 w-40 rounded-full bg-cyan-200/20 blur-3xl" />
+                    <div className="absolute bottom-0 left-1/4 h-48 w-48 rounded-full bg-emerald-400/20 blur-3xl" />
 
-                    <div className="absolute right-6 top-6 flex items-center gap-2 rounded-full border border-white/20 bg-white/15 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-md">
-                        <ShieldCheck className="h-3.5 w-3.5" />
+                    <div className="absolute right-6 top-6 flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-white shadow-lg shadow-blue-950/30 backdrop-blur-md">
+                        <ShieldCheck className="h-3.5 w-3.5 text-emerald-300" />
                         Medical Professional
                     </div>
                 </div>
 
-                <CardContent className="relative px-5 pb-6 pt-0 sm:px-8 sm:pb-8">
+                <CardContent className="relative px-5 pb-8 pt-0 sm:px-10 sm:pb-12">
 
-                    <div className="flex flex-col gap-5 md:flex-row md:items-start md:gap-7">
+                    <div className="flex flex-col gap-5 md:flex-row md:items-start md:gap-8">
 
                         {/* Avatar */}
 
-                        <div className="-mt-14 flex shrink-0 justify-center md:-mt-16 md:justify-start">
+                        <div className="-mt-16 flex shrink-0 justify-center md:-mt-20 md:justify-start">
 
                             <div className="relative">
 
-                                <Avatar className="h-28 w-28 border-[5px] border-white bg-slate-100 shadow-lg ring-1 ring-slate-200/60 sm:h-32 sm:w-32 dark:border-slate-900 dark:bg-slate-800 dark:ring-slate-700">
+                                <Avatar className="h-32 w-32 rounded-tl-[2.5rem] rounded-br-[2.5rem] rounded-tr-2xl rounded-bl-2xl border-[5px] border-white bg-slate-100 shadow-2xl shadow-blue-900/30 ring-2 ring-[#1f6fe5]/60 ring-offset-2 ring-offset-white sm:h-40 sm:w-40 dark:border-slate-900 dark:bg-slate-800 dark:ring-sky-500/60 dark:ring-offset-slate-900">
 
                                     {doctor.profilePhoto && (
                                         <AvatarImage
@@ -148,14 +148,14 @@ const DoctorProfileContent = ({ doctor }: DoctorProfileContentProps) => {
                                         />
                                     )}
 
-                                    <AvatarFallback className="bg-gradient-to-br from-blue-100 to-cyan-100 text-3xl font-bold text-blue-700 dark:from-blue-950 dark:to-slate-800 dark:text-blue-300">
+                                    <AvatarFallback className="rounded-none bg-gradient-to-br from-blue-100 via-sky-50 to-emerald-50 text-4xl font-extrabold text-[#12326b] dark:from-blue-950 dark:to-slate-800 dark:text-sky-300">
                                         {initials}
                                     </AvatarFallback>
 
                                 </Avatar>
 
-                                <div className="absolute bottom-1 right-1 flex h-8 w-8 items-center justify-center rounded-full border-[3px] border-white bg-blue-600 text-white shadow-sm dark:border-slate-900">
-                                    <CheckCircle2 className="h-4 w-4" />
+                                <div className="absolute -bottom-1 -right-1 flex h-10 w-10 items-center justify-center rounded-full border-[3px] border-white bg-gradient-to-br from-emerald-400 to-emerald-600 text-white shadow-lg shadow-emerald-600/40 ring-4 ring-emerald-400/20 dark:border-slate-900">
+                                    <CheckCircle2 className="h-5 w-5" />
                                 </div>
 
                             </div>
@@ -164,26 +164,26 @@ const DoctorProfileContent = ({ doctor }: DoctorProfileContentProps) => {
 
                         {/* Doctor Details */}
 
-                        <div className="min-w-0 flex-1 space-y-4 pt-1 text-center md:pt-5 md:text-left">
+                        <div className="min-w-0 flex-1 space-y-4 pt-1 text-center md:pt-6 md:text-left">
 
-                            <div className="space-y-2">
+                            <div className="space-y-2.5">
 
-                                <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl dark:text-white">
+                                <h1 className="bg-gradient-to-r from-[#12326b] to-[#1f6fe5] bg-clip-text text-3xl font-black tracking-tight text-transparent sm:text-5xl dark:from-white dark:to-sky-300">
                                     {doctor.name}
                                 </h1>
 
                                 <div className="flex flex-wrap items-center justify-center gap-2 md:justify-start">
 
-                                    <Stethoscope className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+                                    <Stethoscope className="h-5 w-5 text-[#1f6fe5] dark:text-sky-400" />
 
-                                    <p className="text-sm font-medium text-slate-600 dark:text-slate-300">
+                                    <p className="text-lg font-semibold leading-relaxed text-slate-600 dark:text-slate-300">
                                         {doctor.designation || "Medical Professional"}
                                     </p>
 
                                 </div>
 
-                                <div className="flex items-center justify-center gap-1.5 text-sm text-slate-500 md:justify-start dark:text-slate-400">
-                                    <Hospital className="h-4 w-4 shrink-0" />
+                                <div className="flex items-center justify-center gap-1.5 text-sm font-medium text-slate-500 md:justify-start dark:text-slate-400">
+                                    <Hospital className="h-4 w-4 shrink-0 text-emerald-500" />
                                     <span>{doctor.currentWorkingPlace}</span>
                                 </div>
 
@@ -198,7 +198,7 @@ const DoctorProfileContent = ({ doctor }: DoctorProfileContentProps) => {
                                         <Badge
                                             key={specialty.specialitiesId}
                                             variant="secondary"
-                                            className="rounded-full border border-blue-100 bg-blue-50 px-3 py-1.5 text-xs font-semibold text-blue-700 shadow-none hover:bg-blue-100 dark:border-blue-900/50 dark:bg-blue-950/40 dark:text-blue-300"
+                                            className="rounded-full border-0 bg-[#12326b] px-4 py-1.5 text-xs font-bold tracking-wide text-white shadow-md shadow-blue-900/25 transition-colors duration-200 hover:bg-[#1f5fd0] dark:border dark:border-sky-400/20 dark:bg-sky-500/15 dark:text-sky-200"
                                         >
                                             {specialty.specialities?.title || "Specialty"}
                                         </Badge>
@@ -213,26 +213,26 @@ const DoctorProfileContent = ({ doctor }: DoctorProfileContentProps) => {
 
                     {/* Divider */}
 
-                    <div className="my-6 h-px bg-slate-100 dark:bg-slate-800" />
+                    <div className="my-8 h-px bg-gradient-to-r from-transparent via-blue-300/70 to-transparent dark:via-sky-700/60" />
 
                     {/* Stats */}
 
-                    <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+                    <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
 
                         {/* Rating */}
 
-                        <div className="flex items-center gap-3 rounded-xl border border-amber-100 bg-amber-50/60 p-4 dark:border-amber-900/30 dark:bg-amber-950/20">
+                        <div className="group relative flex items-center gap-4 overflow-hidden rounded-tl-3xl rounded-br-3xl rounded-tr-lg rounded-bl-lg border border-blue-100 bg-gradient-to-br from-blue-50 via-white to-white p-5 pl-6 shadow-lg shadow-blue-900/5 transition-all duration-300 before:absolute before:inset-y-0 before:left-0 before:w-1.5 before:bg-gradient-to-b before:from-[#1f6fe5] before:to-sky-400 before:content-[''] hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-900/10 dark:border-blue-900/40 dark:from-blue-950/40 dark:via-slate-900 dark:to-slate-900">
 
-                            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400">
-                                <Star className="h-5 w-5 fill-current" />
+                            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-tl-2xl rounded-br-2xl rounded-tr-md rounded-bl-md bg-gradient-to-br from-[#1f6fe5] to-[#38a6f0] text-amber-300 shadow-lg shadow-blue-600/30">
+                                <Star className="h-6 w-6 fill-current" />
                             </div>
 
                             <div className="min-w-0">
-                                <p className="text-lg font-bold text-slate-900 dark:text-white">
+                                <p className="text-4xl font-black tracking-tight text-[#12326b] dark:text-white">
                                     {rating > 0 ? rating.toFixed(1) : "N/A"}
                                 </p>
 
-                                <p className="text-xs font-medium text-slate-500 dark:text-slate-400">
+                                <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
                                     Patient Rating
                                 </p>
                             </div>
@@ -241,21 +241,21 @@ const DoctorProfileContent = ({ doctor }: DoctorProfileContentProps) => {
 
                         {/* Experience */}
 
-                        <div className="flex items-center gap-3 rounded-xl border border-blue-100 bg-blue-50/60 p-4 dark:border-blue-900/30 dark:bg-blue-950/20">
+                        <div className="group relative flex items-center gap-4 overflow-hidden rounded-tl-3xl rounded-br-3xl rounded-tr-lg rounded-bl-lg border border-slate-200 bg-gradient-to-br from-slate-50 via-white to-white p-5 pl-6 shadow-lg shadow-slate-900/5 transition-all duration-300 before:absolute before:inset-y-0 before:left-0 before:w-1.5 before:bg-gradient-to-b before:from-[#12326b] before:to-[#1f5fd0] before:content-[''] hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-900/10 dark:border-slate-700 dark:from-slate-800/60 dark:via-slate-900 dark:to-slate-900">
 
-                            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
-                                <BriefcaseBusiness className="h-5 w-5" />
+                            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-tl-2xl rounded-br-2xl rounded-tr-md rounded-bl-md bg-gradient-to-br from-[#12326b] to-[#1f5fd0] text-white shadow-lg shadow-blue-900/30">
+                                <BriefcaseBusiness className="h-6 w-6" />
                             </div>
 
                             <div className="min-w-0">
-                                <p className="text-lg font-bold text-slate-900 dark:text-white">
+                                <p className="text-4xl font-black tracking-tight text-[#12326b] dark:text-white">
                                     {doctor.experience ?? 0}
-                                    <span className="ml-1 text-sm font-medium text-slate-500">
+                                    <span className="ml-1.5 text-sm font-semibold text-slate-500">
                                         Years
                                     </span>
                                 </p>
 
-                                <p className="text-xs font-medium text-slate-500 dark:text-slate-400">
+                                <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
                                     Experience
                                 </p>
                             </div>
@@ -264,18 +264,18 @@ const DoctorProfileContent = ({ doctor }: DoctorProfileContentProps) => {
 
                         {/* Appointment Fee */}
 
-                        <div className="flex items-center gap-3 rounded-xl border border-emerald-100 bg-emerald-50/60 p-4 dark:border-emerald-900/30 dark:bg-emerald-950/20">
+                        <div className="group relative flex items-center gap-4 overflow-hidden rounded-tl-3xl rounded-br-3xl rounded-tr-lg rounded-bl-lg border border-emerald-100 bg-gradient-to-br from-emerald-50 via-white to-white p-5 pl-6 shadow-lg shadow-emerald-900/5 transition-all duration-300 before:absolute before:inset-y-0 before:left-0 before:w-1.5 before:bg-gradient-to-b before:from-emerald-500 before:to-emerald-300 before:content-[''] hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-900/10 dark:border-emerald-900/40 dark:from-emerald-950/30 dark:via-slate-900 dark:to-slate-900">
 
-                            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400">
-                                <Wallet className="h-5 w-5" />
+                            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-tl-2xl rounded-br-2xl rounded-tr-md rounded-bl-md bg-gradient-to-br from-emerald-500 to-emerald-400 text-white shadow-lg shadow-emerald-600/30">
+                                <Wallet className="h-6 w-6" />
                             </div>
 
                             <div className="min-w-0">
-                                <p className="text-lg font-bold text-slate-900 dark:text-white">
+                                <p className="text-4xl font-black tracking-tight text-[#12326b] dark:text-white">
                                     {formattedFee}
                                 </p>
 
-                                <p className="text-xs font-medium text-slate-500 dark:text-slate-400">
+                                <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
                                     Consultation Fee
                                 </p>
                             </div>
@@ -289,13 +289,13 @@ const DoctorProfileContent = ({ doctor }: DoctorProfileContentProps) => {
 
             {/* ================= DETAILS GRID ================= */}
 
-            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
 
                 {/* Contact Information */}
 
-                <Card className="rounded-2xl border border-slate-200/80 bg-white py-0 shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900">
+                <Card className="relative overflow-hidden rounded-tl-[2.5rem] rounded-br-[2.5rem] rounded-tr-2xl rounded-bl-2xl border border-blue-100/80 bg-white py-0 shadow-xl shadow-blue-900/10 transition-all duration-300 before:absolute before:inset-x-0 before:top-0 before:h-1.5 before:bg-gradient-to-r before:from-[#1f6fe5] before:via-sky-400 before:to-transparent before:content-[''] hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-900/15 dark:border-slate-800 dark:bg-slate-900">
 
-                    <CardContent className="space-y-5 p-5 sm:p-6">
+                    <CardContent className="space-y-6 p-6 pt-9 sm:p-8 sm:pt-11">
 
                         <SectionHeader
                             icon={<Mail className="h-5 w-5" />}
@@ -303,9 +303,9 @@ const DoctorProfileContent = ({ doctor }: DoctorProfileContentProps) => {
                             description="Professional contact and location details"
                         />
 
-                        <div className="h-px bg-slate-100 dark:bg-slate-800" />
+                        <div className="h-px bg-gradient-to-r from-blue-300/70 via-slate-200 to-transparent dark:from-sky-700/60 dark:via-slate-700" />
 
-                        <div className="space-y-1">
+                        <div className="space-y-2.5">
 
                             <InfoItem
                                 icon={<Mail className="h-5 w-5" />}
@@ -332,9 +332,9 @@ const DoctorProfileContent = ({ doctor }: DoctorProfileContentProps) => {
 
                 {/* Professional Details */}
 
-                <Card className="rounded-2xl border border-slate-200/80 bg-white py-0 shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900">
+                <Card className="relative overflow-hidden rounded-tl-[2.5rem] rounded-br-[2.5rem] rounded-tr-2xl rounded-bl-2xl border border-blue-100/80 bg-white py-0 shadow-xl shadow-blue-900/10 transition-all duration-300 before:absolute before:inset-x-0 before:top-0 before:h-1.5 before:bg-gradient-to-r before:from-[#12326b] before:via-[#1f6fe5] before:to-transparent before:content-[''] hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-900/15 dark:border-slate-800 dark:bg-slate-900">
 
-                    <CardContent className="space-y-5 p-5 sm:p-6">
+                    <CardContent className="space-y-6 p-6 pt-9 sm:p-8 sm:pt-11">
 
                         <SectionHeader
                             icon={<Award className="h-5 w-5" />}
@@ -342,9 +342,9 @@ const DoctorProfileContent = ({ doctor }: DoctorProfileContentProps) => {
                             description="Medical credentials and professional background"
                         />
 
-                        <div className="h-px bg-slate-100 dark:bg-slate-800" />
+                        <div className="h-px bg-gradient-to-r from-blue-300/70 via-slate-200 to-transparent dark:from-sky-700/60 dark:via-slate-700" />
 
-                        <div className="space-y-1">
+                        <div className="space-y-2.5">
 
                             <InfoItem
                                 icon={<BriefcaseBusiness className="h-5 w-5" />}
@@ -373,9 +373,9 @@ const DoctorProfileContent = ({ doctor }: DoctorProfileContentProps) => {
 
             {/* ================= QUALIFICATION ================= */}
 
-            <Card className="rounded-2xl border border-slate-200/80 bg-white py-0 shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900">
+            <Card className="relative overflow-hidden rounded-tl-[2.5rem] rounded-br-[2.5rem] rounded-tr-2xl rounded-bl-2xl border border-emerald-100/80 bg-white py-0 shadow-xl shadow-emerald-900/5 transition-all duration-300 before:absolute before:inset-x-0 before:top-0 before:h-1.5 before:bg-gradient-to-r before:from-emerald-400 before:via-emerald-300 before:to-transparent before:content-[''] hover:-translate-y-1 hover:shadow-2xl hover:shadow-emerald-900/10 dark:border-slate-800 dark:bg-slate-900">
 
-                <CardContent className="space-y-5 p-5 sm:p-6">
+                <CardContent className="space-y-6 p-6 pt-9 sm:p-8 sm:pt-11">
 
                     <SectionHeader
                         icon={<GraduationCap className="h-5 w-5" />}
@@ -383,30 +383,30 @@ const DoctorProfileContent = ({ doctor }: DoctorProfileContentProps) => {
                         description="Academic qualifications and medical education"
                     />
 
-                    <div className="h-px bg-slate-100 dark:bg-slate-800" />
+                    <div className="h-px bg-gradient-to-r from-emerald-300/70 via-slate-200 to-transparent dark:from-emerald-700/60 dark:via-slate-700" />
 
-                    <div className="flex items-start gap-4 rounded-xl border border-slate-100 bg-slate-50/70 p-5 dark:border-slate-800 dark:bg-slate-800/40">
+                    <div className="flex items-start gap-5 rounded-tl-3xl rounded-br-3xl rounded-tr-lg rounded-bl-lg border border-emerald-100 bg-gradient-to-br from-emerald-50/70 via-white to-blue-50/60 p-6 sm:p-7 dark:border-slate-800 dark:from-slate-800/40 dark:via-slate-900 dark:to-slate-800/40">
 
-                        <div className="hidden h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white text-blue-600 shadow-sm sm:flex dark:bg-slate-800 dark:text-blue-400">
+                        <div className="hidden h-14 w-14 shrink-0 items-center justify-center rounded-tl-3xl rounded-br-3xl rounded-tr-md rounded-bl-md bg-gradient-to-br from-emerald-500 to-emerald-400 text-white shadow-lg shadow-emerald-600/30 sm:flex">
                             <GraduationCap className="h-6 w-6" />
                         </div>
 
-                        <div className="min-w-0 space-y-2">
+                        <div className="min-w-0 space-y-2.5">
 
                             <div className="flex items-center gap-2">
-                                <h4 className="text-sm font-semibold text-slate-900 dark:text-white">
+                                <h4 className="text-lg font-extrabold tracking-tight text-[#12326b] dark:text-white">
                                     Medical Education
                                 </h4>
 
                                 <Badge
                                     variant="outline"
-                                    className="rounded-full border-blue-200 bg-blue-50 text-[10px] font-medium text-blue-700 dark:border-blue-900 dark:bg-blue-950/40 dark:text-blue-300"
+                                    className="rounded-full border-emerald-200 bg-emerald-50 px-2.5 text-[10px] font-bold uppercase tracking-[0.15em] text-emerald-700 dark:border-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-300"
                                 >
                                     Qualification
                                 </Badge>
                             </div>
 
-                            <p className="whitespace-pre-line text-sm leading-7 text-slate-600 dark:text-slate-300">
+                            <p className="whitespace-pre-line text-lg font-semibold leading-8 text-slate-700 dark:text-slate-200">
                                 {doctor.qualification || "Qualification information not available."}
                             </p>
 
