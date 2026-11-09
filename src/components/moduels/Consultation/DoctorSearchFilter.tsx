@@ -49,7 +49,7 @@ export default function DoctorSearchFilters({
       // Reset to page 1 when filters change
       params.delete("page");
 
-      router.push(`/consultation?${params.toString()}`);
+      router.push(`/consultation/doctors?${params.toString()}`);
     },
     [router]
   );
@@ -66,7 +66,7 @@ export default function DoctorSearchFilters({
 
   const handleClearFilters = () => {
     setSearchTerm("");
-    router.push("/consultation");
+    router.push("/consultation/doctors");
   };
 
   const hasActiveFilters =
@@ -76,7 +76,7 @@ export default function DoctorSearchFilters({
     <div className="space-y-4">
       <div className="flex flex-col md:flex-row gap-4">
         {/* Search Input */}
-        <div className="flex-1 relative">
+        {/* <div className="flex-1 relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
             placeholder="Search doctors by name..."
@@ -84,7 +84,7 @@ export default function DoctorSearchFilters({
             onChange={(e) => setSearchTerm(e.target.value)}
             className="pl-10"
           />
-        </div>
+        </div> */}
 
         {/* Specialty Filter */}
         <Select
