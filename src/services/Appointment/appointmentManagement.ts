@@ -36,7 +36,7 @@ export async function createAppointment(data: IAppointmentFormData) {
 
 export async function createAppointmentWithPayLater(data: IAppointmentFormData) {
     try {
-        const response = await serverFetch.post("/appointment/pay-later", {
+        const response = await serverFetch.post("/appointment", {
             body: JSON.stringify(data),
             headers: {
                 "Content-Type": "application/json",
