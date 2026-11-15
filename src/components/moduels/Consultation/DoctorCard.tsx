@@ -118,7 +118,7 @@ export default function DoctorCard({ doctor }: DoctorCard) {
                 </CardContent>
 
                 <CardFooter className="mt-auto flex flex-wrap gap-3 border-t border-blue-100/80 bg-slate-50/70 px-6 pb-6 pt-3 dark:border-slate-800 dark:bg-slate-800/30">
-                    <Link className="flex-1" href={`/consultation/doctors/${doctor.id}`}>
+                    <Link className="flex-1" href={`/consultation/doctor/${doctor.id}`}>
                         <Button variant="outline" className="h-11 w-full cursor-pointer rounded-tl-2xl rounded-br-2xl rounded-tr-md rounded-bl-md border-2 border-[#1f6fe5]/30 bg-white font-bold text-[#12326b] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#1f6fe5] hover:bg-blue-50 hover:text-[#12326b] hover:shadow-md hover:shadow-blue-900/10 dark:border-sky-500/30 dark:bg-slate-900 dark:text-sky-200 dark:hover:bg-slate-800 dark:hover:text-sky-100">
                             <Eye className="mr-2 h-4 w-4" />
                             View Details
