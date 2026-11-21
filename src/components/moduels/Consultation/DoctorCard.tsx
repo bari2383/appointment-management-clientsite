@@ -28,28 +28,28 @@ export default function DoctorCard({ doctor }: DoctorCard) {
 
     return (
         <>
-            <Card className="relative h-full gap-0 overflow-hidden rounded-tl-[2.5rem] rounded-br-[2.5rem] rounded-tr-2xl rounded-bl-2xl border border-blue-100/80 bg-white py-0 shadow-xl shadow-blue-900/10 transition-all duration-300 before:absolute before:inset-x-0 before:top-0 before:h-1.5 before:bg-gradient-to-r before:from-[#1f6fe5] before:via-sky-400 before:to-emerald-400 before:content-[''] hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-900/20 dark:border-slate-800 dark:bg-slate-900">
-                <CardHeader className="px-6 pb-4 pt-8">
-                    <div className="flex items-start gap-4">
-                        <Avatar className="h-16 w-16 rounded-tl-[1.75rem] rounded-br-[1.75rem] rounded-tr-xl rounded-bl-xl border-4 border-white shadow-xl shadow-blue-900/25 ring-2 ring-[#1f6fe5]/50 md:h-24 md:w-24 dark:border-slate-900 dark:ring-sky-500/50">
-                            <AvatarImage src={doctor.profilePhoto || ""} alt={doctor.name} className="object-cover" />
-                            <AvatarFallback className="rounded-none bg-gradient-to-br from-blue-100 via-sky-50 to-emerald-50 text-lg font-extrabold text-[#12326b] dark:from-blue-950 dark:to-slate-800 dark:text-sky-300">
+            <Card className="group relative mx-auto h-full w-full max-w-[26rem] gap-0 overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white p-2 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_14px_40px_-22px_rgba(15,23,42,0.22)] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-blue-300 hover:shadow-[0_0_0_4px_rgba(59,130,246,0.10),0_24px_50px_-18px_rgba(37,99,235,0.32)] before:absolute before:inset-x-0 before:top-0 before:z-10 before:h-1 before:origin-left before:scale-x-0 before:bg-blue-500 before:transition-transform before:duration-500 hover:before:scale-x-100 animate-in fade-in slide-in-from-bottom-3 [animation-duration:500ms] fill-mode-backwards motion-reduce:animate-none motion-reduce:transition-none motion-reduce:hover:translate-y-0 sm:rounded-[2.25rem] sm:p-2.5 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-blue-400/40 dark:hover:shadow-[0_0_0_4px_rgba(96,165,250,0.12),0_24px_50px_-18px_rgba(37,99,235,0.35)]">
+                <CardHeader className="p-0">
+                    <div className="flex flex-col items-stretch gap-0">
+                        <Avatar className="relative isolate block aspect-[5/4] h-auto w-full shrink-0 overflow-hidden !rounded-[1.25rem] border-0 bg-slate-100 shadow-none after:pointer-events-none after:absolute after:inset-0 after:bg-gradient-to-t after:from-slate-900/25 after:to-transparent after:opacity-0 after:transition-opacity after:duration-300 group-hover:after:opacity-100 sm:aspect-[5/4] sm:!rounded-[1.625rem] dark:bg-slate-800">
+                            <AvatarImage src={doctor.profilePhoto || ""} alt={doctor.name} className="h-full w-full scale-[1.12] object-cover object-[50%_15%] transition-transform duration-500 ease-out group-hover:scale-[1.18] motion-reduce:group-hover:scale-[1.12]" />
+                            <AvatarFallback className="h-full w-full !rounded-[1.25rem] bg-gradient-to-br from-slate-100 to-blue-50 text-3xl font-semibold text-slate-400 sm:!rounded-[1.625rem] sm:text-4xl dark:from-slate-800 dark:to-slate-900 dark:text-slate-500">
                                 {getInitials(doctor.name)}
                             </AvatarFallback>
                         </Avatar>
 
-                        <div className="min-w-0 flex-1">
-                            <CardTitle className="line-clamp-1 text-xl font-extrabold tracking-tight text-[#12326b] dark:text-white">
+                        <div className="min-w-0 flex-1 px-3 pb-1 pt-4 sm:px-4 sm:pt-4">
+                            <CardTitle className="line-clamp-1 text-lg font-semibold leading-tight tracking-tight !text-slate-900 transition-colors duration-200 group-hover:!text-blue-700 sm:text-xl lg:text-[1.4rem] dark:!text-white dark:group-hover:!text-blue-300">
                                 {doctor.name}
                             </CardTitle>
-                            <CardDescription className="mt-1 line-clamp-1 font-medium text-slate-500 dark:text-slate-400">
+                            <CardDescription className="mt-1 line-clamp-2 text-sm font-medium leading-relaxed !text-slate-500 sm:text-[15px] dark:!text-slate-400">
                                 {doctor.designation}
                             </CardDescription>
 
-                            <div className="mt-3 flex flex-wrap items-center gap-2">
-                                <div className="flex items-center gap-1 rounded-full bg-amber-50 px-2.5 py-1 ring-1 ring-amber-200 dark:bg-amber-950/30 dark:ring-amber-900/50">
-                                    <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-                                    <span className="text-sm font-bold text-amber-700 dark:text-amber-300">
+                            <div className="mt-3 flex flex-wrap items-center gap-2 sm:mt-3.5">
+                                <div className="flex items-center gap-1.5 rounded-full border border-amber-100 bg-amber-50 px-2.5 py-1 shadow-sm sm:px-3 dark:border-amber-400/20 dark:bg-amber-400/10">
+                                    <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400 sm:h-4 sm:w-4" />
+                                    <span className="text-xs font-semibold !text-slate-700 sm:text-[13px] dark:!text-amber-200">
                                         {doctor.averageRating?.toFixed(1) || "N/A"}
                                     </span>
                                 </div>
@@ -58,7 +58,7 @@ export default function DoctorCard({ doctor }: DoctorCard) {
                                         <div className="flex flex-wrap gap-1">
                                             {doctor.doctorSpecialties &&
                                                 doctor.doctorSpecialties.length > 0 && (
-                                                    <Badge variant="secondary" className="rounded-full border-0 bg-[#12326b] px-3 py-1 text-xs font-semibold tracking-wide text-white shadow-md shadow-blue-900/20 hover:bg-[#1f5fd0] dark:bg-sky-500/15 dark:text-sky-200">
+                                                    <Badge variant="secondary" className="rounded-full border !border-blue-100 !bg-blue-50 px-2.5 py-1 text-xs font-medium !text-blue-700 shadow-none hover:!bg-blue-100 sm:px-3 sm:text-[13px] dark:!border-blue-400/20 dark:!bg-blue-400/10 dark:!text-blue-300 dark:hover:!bg-blue-400/15">
                                                         {doctor.doctorSpecialties[0].specialities?.title}
                                                     </Badge>
                                                 )}
@@ -69,30 +69,30 @@ export default function DoctorCard({ doctor }: DoctorCard) {
                     </div>
                 </CardHeader>
 
-                <CardContent className="space-y-3.5 px-6 pb-5">
-                    <div className="grid grid-cols-2 gap-3 text-sm">
-                        <div className="flex items-center gap-2 rounded-xl bg-blue-50/70 px-3 py-2.5 text-slate-600 dark:bg-slate-800/50 dark:text-slate-300">
-                            <Clock className="h-4 w-4 shrink-0 text-[#1f6fe5] dark:text-sky-400" />
-                            <span className="truncate font-medium">{doctor.experience} years experience</span>
+                <CardContent className="space-y-2.5 px-3 pb-3 pt-2.5 sm:space-y-3 sm:px-4 sm:pt-3">
+                    <div className="grid grid-cols-2 gap-2 text-sm">
+                        <div className="flex min-w-0 items-center justify-center gap-2 rounded-2xl border border-slate-100 bg-slate-50 px-2.5 py-2 text-slate-600 transition-colors duration-200 hover:border-slate-200 hover:bg-slate-100 sm:px-3 sm:py-2.5 dark:border-slate-700 dark:bg-slate-800/60 dark:text-slate-300">
+                            <Clock className="h-3.5 w-3.5 shrink-0 text-blue-500 sm:h-4 sm:w-4" />
+                            <span className="truncate text-xs font-medium sm:text-[13px]">{doctor.experience} years experience</span>
                         </div>
-                        <div className="flex items-center gap-2 rounded-xl bg-emerald-50/70 px-3 py-2.5 text-slate-600 dark:bg-emerald-950/20 dark:text-slate-300">
-                            <DollarSign className="h-4 w-4 shrink-0 text-emerald-500" />
-                            <span className="font-extrabold text-[#12326b] dark:text-white">
+                        <div className="flex min-w-0 items-center justify-center gap-2 rounded-2xl border border-blue-100 bg-blue-50 px-2.5 py-2 text-blue-700 sm:px-3 sm:py-2.5 dark:border-blue-400/20 dark:bg-blue-400/10 dark:text-blue-300">
+                            <DollarSign className="h-3.5 w-3.5 shrink-0 text-blue-600 sm:h-4 sm:w-4" />
+                            <span className="text-sm font-semibold tabular-nums text-blue-700 sm:text-base dark:text-blue-300">
                                 ${doctor.appointmentFee}
                             </span>
                         </div>
                     </div>
 
                     {doctor.currentWorkingPlace && (
-                        <div className="flex items-start gap-2 text-sm font-medium text-slate-600 dark:text-slate-300">
-                            <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-emerald-500" />
+                        <div className="flex items-start gap-2 text-sm font-medium text-slate-500 sm:text-[15px] dark:text-slate-400">
+                            <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-blue-500" />
                             <span className="line-clamp-1">{doctor.currentWorkingPlace}</span>
                         </div>
                     )}
 
-                    <div className="rounded-2xl border border-emerald-100 bg-gradient-to-br from-emerald-50/60 via-white to-blue-50/50 p-3.5 text-sm dark:border-slate-800 dark:from-slate-800/40 dark:via-slate-900 dark:to-slate-800/40">
-                        <p className="mb-1.5 text-[10px] font-bold uppercase tracking-[0.22em] text-slate-400 dark:text-slate-500">Qualification:</p>
-                        <p className="line-clamp-2 font-semibold leading-relaxed text-slate-700 dark:text-slate-200">
+                    <div className="rounded-2xl border border-slate-100 bg-slate-50/80 px-3 py-2.5 text-sm transition-colors duration-300 group-hover:border-blue-100 group-hover:bg-blue-50/60 sm:px-3.5 sm:py-3 dark:border-slate-700 dark:bg-slate-800/50">
+                        <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-slate-400 sm:text-[11px] dark:text-slate-500">Qualification:</p>
+                        <p className="line-clamp-2 text-sm leading-relaxed text-slate-700 sm:text-[15px] dark:text-slate-200">
                             {doctor.qualification}
                         </p>
                     </div>
@@ -103,13 +103,13 @@ export default function DoctorCard({ doctor }: DoctorCard) {
                                 <Badge
                                     key={specialty.specialitiesId}
                                     variant="outline"
-                                    className="rounded-full border-blue-200 bg-blue-50 px-3 text-xs font-semibold text-blue-700 dark:border-blue-900 dark:bg-blue-950/40 dark:text-blue-300"
+                                    className="rounded-xl border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600 shadow-none transition-colors duration-200 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 sm:px-3 sm:text-[13px] dark:border-slate-700 dark:bg-slate-800/70 dark:text-slate-300"
                                 >
                                     {specialty.specialities?.title}
                                 </Badge>
                             ))}
                             {doctor.doctorSpecialties.length > 3 && (
-                                <Badge variant="outline" className="rounded-full border-emerald-200 bg-emerald-50 px-3 text-xs font-semibold text-emerald-700 dark:border-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-300">
+                                <Badge variant="outline" className="rounded-xl border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600 shadow-none transition-colors duration-200 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 sm:px-3 sm:text-[13px] dark:border-slate-700 dark:bg-slate-800/70 dark:text-slate-300">
                                     +{doctor.doctorSpecialties.length - 3} more
                                 </Badge>
                             )}
@@ -117,14 +117,14 @@ export default function DoctorCard({ doctor }: DoctorCard) {
                     )}
                 </CardContent>
 
-                <CardFooter className="mt-auto flex flex-wrap gap-3 border-t border-blue-100/80 bg-slate-50/70 px-6 pb-6 pt-3 dark:border-slate-800 dark:bg-slate-800/30">
-                    <Link className="flex-1" href={`/consultation/doctor/${doctor.id}`}>
-                        <Button variant="outline" className="h-11 w-full cursor-pointer rounded-tl-2xl rounded-br-2xl rounded-tr-md rounded-bl-md border-2 border-[#1f6fe5]/30 bg-white font-bold text-[#12326b] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#1f6fe5] hover:bg-blue-50 hover:text-[#12326b] hover:shadow-md hover:shadow-blue-900/10 dark:border-sky-500/30 dark:bg-slate-900 dark:text-sky-200 dark:hover:bg-slate-800 dark:hover:text-sky-100">
+                <CardFooter className="mt-auto flex flex-wrap gap-2.5 px-3 pb-2 pt-2 sm:px-4 sm:pb-2.5">
+                    <Link className="min-w-[8.5rem] flex-1" href={`/consultation/doctor/${doctor.id}`}>
+                        <Button variant="outline" className="h-10 w-full cursor-pointer rounded-xl border-slate-200 !bg-white text-sm font-medium !text-slate-600 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:!border-blue-300 hover:!bg-blue-50 hover:!text-blue-700 active:scale-[0.98] sm:h-11 dark:border-slate-700 dark:!bg-slate-900 dark:!text-slate-300 dark:hover:!border-blue-400/30 dark:hover:!bg-blue-400/10 dark:hover:!text-blue-300">
                             <Eye className="mr-2 h-4 w-4" />
                             View Details
                         </Button>
                     </Link>
-                    <Button onClick={() => setShowScheduleModal(true)} className="h-11 flex-1 cursor-pointer rounded-tl-2xl rounded-br-2xl rounded-tr-md rounded-bl-md border-0 bg-gradient-to-r from-[#12326b] via-[#1f5fd0] to-[#2f8de8] font-bold text-white shadow-lg shadow-blue-700/30 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-700/40 hover:brightness-110">
+                    <Button onClick={() => setShowScheduleModal(true)} className="h-10 min-w-[8.5rem] flex-1 cursor-pointer rounded-xl !bg-blue-600 text-sm font-semibold !text-white shadow-[0_8px_18px_-8px_rgba(37,99,235,0.65)] transition-all duration-200 hover:-translate-y-0.5 hover:!bg-blue-700 hover:shadow-[0_10px_22px_-8px_rgba(37,99,235,0.7)] active:translate-y-0 active:scale-[0.98] sm:h-11">
                         Book Appointment
                     </Button>
                 </CardFooter>

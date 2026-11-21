@@ -73,7 +73,7 @@ export default function DoctorSearchFilters({
     searchParams.get("searchTerm") || searchParams.get("specialties");
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 animate-in fade-in slide-in-from-top-2 [animation-duration:500ms] motion-reduce:animate-none">
       <div className="flex flex-col md:flex-row gap-4">
         {/* Search Input */}
         {/* <div className="flex-1 relative">
@@ -91,7 +91,7 @@ export default function DoctorSearchFilters({
           value={searchParams.get("specialties") || "all"}
           onValueChange={(value) => updateFilters("specialties", value)}
         >
-          <SelectTrigger className="w-full md:w-62.5">
+          <SelectTrigger className="w-full rounded-xl border-slate-200 bg-white shadow-none transition-colors duration-200 hover:border-slate-300 focus-visible:border-blue-400 focus-visible:ring-blue-500/20 data-[size=default]:h-10 dark:border-slate-800 dark:bg-slate-900 md:w-62.5">
             <SelectValue placeholder="Select Specialty" />
           </SelectTrigger>
           <SelectContent>
@@ -109,7 +109,7 @@ export default function DoctorSearchFilters({
           value={searchParams.get("gender") || "all"}
           onValueChange={(value) => updateFilters("gender", value)}
         >
-          <SelectTrigger className="w-full md:w-45">
+          <SelectTrigger className="w-full rounded-xl border-slate-200 bg-white shadow-none transition-colors duration-200 hover:border-slate-300 focus-visible:border-blue-400 focus-visible:ring-blue-500/20 data-[size=default]:h-10 dark:border-slate-800 dark:bg-slate-900 md:w-45">
             <SelectValue placeholder="Gender" />
           </SelectTrigger>
           <SelectContent>
@@ -124,7 +124,7 @@ export default function DoctorSearchFilters({
           <Button
             variant="outline"
             onClick={handleClearFilters}
-            className="w-full md:w-auto"
+            className="h-10 w-full rounded-xl border-slate-200 bg-white text-sm font-medium text-slate-700 shadow-none transition-all duration-200 hover:bg-slate-50 active:scale-[0.97] animate-in fade-in zoom-in-95 [animation-duration:200ms] motion-reduce:animate-none md:w-auto dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"
           >
             Clear Filters
           </Button>

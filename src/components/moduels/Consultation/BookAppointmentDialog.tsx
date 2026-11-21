@@ -148,27 +148,17 @@ export default function BookAppointmentDialog({
       }}
     >
       <DialogContent
-        className="
-                    flex
-                    max-h-[90vh]
-                    w-[calc(100%-2rem)]
-                    max-w-2xl
-                    flex-col
-                    gap-0
-                    overflow-hidden
-                    p-0
-                    sm:max-w-2xl
-                "
+        className="flex max-h-[90vh] w-[calc(100%-2rem)] max-w-2xl flex-col gap-0 overflow-hidden rounded-2xl border-slate-200 p-0 shadow-xl sm:max-w-2xl dark:border-slate-800"
       >
         {/* Dialog Header */}
-        <DialogHeader className="shrink-0 border-b px-5 py-5 sm:px-6">
-          <DialogTitle className="text-lg font-semibold sm:text-xl">
+        <DialogHeader className="shrink-0 border-b border-slate-100 px-5 py-5 sm:px-6 dark:border-slate-800">
+          <DialogTitle className="text-lg font-semibold text-slate-900 sm:text-xl dark:text-white">
             Book an Appointment
           </DialogTitle>
 
-          <DialogDescription>
+          <DialogDescription className="text-sm text-slate-500 dark:text-slate-400">
             Select an available consultation time with{" "}
-            <span className="font-medium text-foreground">
+            <span className="font-medium text-slate-900 dark:text-white">
               {doctor.name}
             </span>
           </DialogDescription>
@@ -179,23 +169,23 @@ export default function BookAppointmentDialog({
           <div className="space-y-5">
 
             {/* Doctor Information */}
-            <div className="flex items-start gap-3 rounded-xl border bg-muted/40 p-4">
-              <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+            <div className="flex items-start gap-3 rounded-xl border border-slate-200 bg-slate-50 p-4 animate-in fade-in slide-in-from-bottom-2 [animation-duration:400ms] fill-mode-backwards motion-reduce:animate-none dark:border-slate-800 dark:bg-slate-800/40">
+              <div className="flex size-11 shrink-0 items-center justify-center rounded-xl border border-blue-200 bg-blue-50 text-blue-600 dark:border-sky-500/30 dark:bg-sky-500/10 dark:text-sky-300">
                 <Stethoscope className="size-5" />
               </div>
 
               <div className="min-w-0 flex-1">
-                <h3 className="font-semibold">
+                <h3 className="font-semibold text-slate-900 dark:text-white">
                   {doctor.name}
                 </h3>
 
-                <p className="mt-1 text-sm text-muted-foreground">
+                <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
                   {doctor.designation}
                 </p>
 
-                <p className="mt-2 text-sm">
+                <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
                   Consultation Fee:{" "}
-                  <span className="font-semibold text-primary">
+                  <span className="font-semibold text-blue-600 dark:text-sky-300">
                     ৳{doctor.appointmentFee}
                   </span>
                 </p>
@@ -205,39 +195,39 @@ export default function BookAppointmentDialog({
             {/* Available Slots Header */}
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
-                <h3 className="text-sm font-semibold">
+                <h3 className="text-sm font-semibold text-slate-900 dark:text-white">
                   Available Time Slots
                 </h3>
 
-                <p className="mt-1 text-xs text-muted-foreground">
+                <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
                   Choose your preferred date and time
                 </p>
               </div>
 
-              <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+              <span className="rounded-full border border-blue-200 bg-blue-50 px-2.5 py-0.5 text-xs font-medium text-blue-700 dark:border-sky-500/30 dark:bg-sky-500/10 dark:text-sky-300">
                 {totalAvailableSlots} Available
               </span>
             </div>
 
             {/* Available Schedules */}
             {groupedSchedules.length === 0 ? (
-              <div className="flex flex-col items-center justify-center rounded-xl border border-dashed px-4 py-12 text-center">
-                <div className="mb-3 flex size-12 items-center justify-center rounded-full bg-muted">
-                  <CalendarDays className="size-6 text-muted-foreground" />
+              <div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-slate-300 bg-slate-50 px-4 py-12 text-center animate-in fade-in zoom-in-95 [animation-duration:400ms] motion-reduce:animate-none dark:border-slate-700 dark:bg-slate-800/40">
+                <div className="mb-3 flex size-12 items-center justify-center rounded-full border border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-900">
+                  <CalendarDays className="size-6 text-slate-400" />
                 </div>
 
-                <p className="font-medium">
+                <p className="font-medium text-slate-900 dark:text-white">
                   No Available Slots
                 </p>
 
-                <p className="mt-1 max-w-xs text-sm text-muted-foreground">
+                <p className="mt-1 max-w-xs text-sm text-slate-500 dark:text-slate-400">
                   This doctor currently has no available
                   appointment slots. Please check back later.
                 </p>
               </div>
             ) : (
               <ScrollArea className="h-64 pr-3 sm:h-72">
-                <div className="space-y-5">
+                <div className="space-y-5 [&>*]:animate-in [&>*]:fade-in [&>*]:slide-in-from-bottom-2 [&>*]:[animation-duration:400ms] [&>*]:fill-mode-backwards motion-reduce:[&>*]:animate-none [&>*:nth-child(2)]:[animation-delay:70ms] [&>*:nth-child(3)]:[animation-delay:140ms] [&>*:nth-child(4)]:[animation-delay:210ms]">
 
                   {groupedSchedules.map(
                     ([date, schedules]) => (
@@ -247,9 +237,9 @@ export default function BookAppointmentDialog({
                       >
                         {/* Date Header */}
                         <div className="flex items-center gap-2">
-                          <CalendarDays className="size-4 shrink-0 text-primary" />
+                          <CalendarDays className="size-4 shrink-0 text-blue-600 dark:text-sky-300" />
 
-                          <h4 className="text-sm font-semibold">
+                          <h4 className="text-sm font-semibold text-slate-900 dark:text-white">
                             {formatScheduleDate(
                               schedules[0].startDateTime,
                               {
@@ -291,20 +281,10 @@ export default function BookAppointmentDialog({
                                   setSelectedSchedule(schedule)
                                 }
                                 aria-pressed={isSelected}
-                                className="
-                                                                    h-auto
-                                                                    min-h-11
-                                                                    justify-center
-                                                                    gap-2
-                                                                    rounded-lg
-                                                                    px-2
-                                                                    py-3
-                                                                    text-xs
-                                                                    sm:text-sm
-                                                                "
+                                className="h-auto min-h-11 justify-center gap-2 rounded-lg border-slate-200 bg-white px-2 py-3 text-xs font-medium text-slate-700 shadow-none transition-all duration-200 hover:border-blue-300 hover:bg-blue-50 hover:text-blue-700 active:scale-[0.97] aria-pressed:border-blue-600 aria-pressed:bg-blue-600 aria-pressed:text-white aria-pressed:shadow-sm aria-pressed:hover:bg-blue-700 aria-pressed:hover:text-white sm:text-sm dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
                               >
                                 {isSelected ? (
-                                  <Check className="size-4 shrink-0" />
+                                  <Check className="size-4 shrink-0 animate-in zoom-in-50 [animation-duration:200ms] motion-reduce:animate-none" />
                                 ) : (
                                   <Clock3 className="size-4 shrink-0" />
                                 )}
@@ -326,14 +306,14 @@ export default function BookAppointmentDialog({
         </div>
 
         {/* Dialog Footer */}
-        <DialogFooter className="shrink-0 border-t bg-muted/20 px-5 py-4 sm:px-6">
+        <DialogFooter className="shrink-0 border-t border-slate-100 bg-slate-50/60 px-5 py-4 sm:px-6 dark:border-slate-800 dark:bg-slate-800/30">
           <div className="flex w-full flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
 
             {/* Selected Schedule */}
-            <div className="text-sm text-muted-foreground">
+            <div className="text-sm text-slate-500 dark:text-slate-400">
               {selectedSchedule ? (
                 <>
-                  <span className="font-medium text-foreground">
+                  <span className="font-medium text-slate-900 dark:text-white">
                     Selected:{" "}
                   </span>
 
@@ -368,6 +348,7 @@ export default function BookAppointmentDialog({
                 type="button"
                 variant="outline"
                 onClick={handleCloseModal}
+                className="rounded-lg border-slate-200 bg-white text-slate-700 shadow-none transition-all duration-200 hover:bg-slate-50 active:scale-[0.97] dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
               >
                 Cancel
               </Button>
@@ -376,6 +357,7 @@ export default function BookAppointmentDialog({
                 type="button"
                 onClick={handleContinue}
                 disabled={!selectedSchedule}
+                className="rounded-lg bg-blue-600 text-white shadow-none transition-all duration-200 hover:bg-blue-700 hover:shadow-md hover:shadow-blue-600/25 active:scale-[0.97] disabled:bg-slate-200 disabled:text-slate-400 disabled:opacity-100 dark:disabled:bg-slate-800 dark:disabled:text-slate-500"
               >
                 Continue
               </Button>
