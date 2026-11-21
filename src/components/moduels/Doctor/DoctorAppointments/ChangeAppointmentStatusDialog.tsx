@@ -41,10 +41,10 @@ export default function ChangeAppointmentStatusDialog({
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const statusOptions = [
-    { value: AppointmentStatus.SCHEDULED, label: "Scheduled" },
-    { value: AppointmentStatus.INPROGRESS, label: "In Progress" },
-    { value: AppointmentStatus.COMPLETED, label: "Completed" },
-    { value: AppointmentStatus.CANCELED, label: "Canceled" },
+    { value: AppointmentStatus.SCHEDULED, label: "SCHEDULED" },
+    { value: AppointmentStatus.INPROGRESS, label: "INPROGRESS" },
+    { value: AppointmentStatus.COMPLETED, label: "COMPLETED" },
+    { value: AppointmentStatus.CANCELED, label: "CANCELED" },
   ];
 
   const handleSubmit = async () => {
@@ -141,7 +141,7 @@ export default function ChangeAppointmentStatusDialog({
           </div>
 
           {/* Warning for Completion */}
-          {newStatus === AppointmentStatus.COMPLETED &&
+          {/* {newStatus === AppointmentStatus.COMPLETED &&
             !appointment.prescription && (
               <div className="bg-amber-50 border border-amber-200 rounded-lg p-3">
                 <div className="flex items-start gap-2">
@@ -152,7 +152,7 @@ export default function ChangeAppointmentStatusDialog({
                   </div>
                 </div>
               </div>
-            )}
+            )} */}
         </div>
 
         <DialogFooter>

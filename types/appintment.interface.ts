@@ -6,9 +6,9 @@ import { ISchedule } from "./schedule.interface";
 
 export enum AppointmentStatus {
     SCHEDULED = "SCHEDULE",
-    INPROGRESS = "InProgress",
-    COMPLETED = "Completed",
-    CANCELED = "Cancelled",
+    INPROGRESS = "INPROGRESS",
+    COMPLETED = "COMPLETED",
+    CANCELED = "CANCELED",
 }
 
 export enum PaymentStatus {
