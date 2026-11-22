@@ -2,7 +2,7 @@ import UnderConstructionPage from "@/components/shared/UnderConstruction";
 
 
 
-const ContactUsPage = () => {
+const ContactPage = () => {
 
     return (
         <>
@@ -11,4 +11,4 @@ const ContactUsPage = () => {
     );
 };
 
-export default ContactUsPage;
+export default ContactPage;

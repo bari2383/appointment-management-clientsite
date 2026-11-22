@@ -6,7 +6,7 @@ import DoctorAppointmentsTable from "@/components/moduels/Doctor/DoctorAppointme
 async function AppointmentsContent() {
     const response = await getMyAppointments();
     const appointments: IAppointment[] = response?.data || [];
-    console.log(response)
+
     return <DoctorAppointmentsTable appointments={appointments} />;
 }
 

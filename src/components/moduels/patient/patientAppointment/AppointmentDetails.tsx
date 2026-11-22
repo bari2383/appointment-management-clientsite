@@ -136,6 +136,8 @@ const AppointmentDetails = ({ appointment }: AppointmentDetailProps) => {
       </Badge>
     );
   };
+
+
   return (
     <div className="mx-auto max-w-5xl space-y-8 animate-in fade-in slide-in-from-bottom-2 [animation-duration:500ms] motion-reduce:animate-none">
       {/* Header */}
@@ -149,23 +151,7 @@ const AppointmentDetails = ({ appointment }: AppointmentDetailProps) => {
           </p>
         </div>
         <div className="flex w-full gap-2 sm:w-auto">
-          {canCancel && (
-            <Button
-              variant="destructive"
-              className="rounded-xl shadow-sm transition-all duration-200 hover:shadow-md active:scale-[0.98]"
-              onClick={handleCancelAppointment}
-              disabled={isCancelling}
-            >
-              {isCancelling ? (
-                <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Cancelling...
-                </>
-              ) : (
-                "Cancel Appointment"
-              )}
-            </Button>
-          )}
+          
           <Button variant="outline" className="rounded-xl border-slate-200 bg-white text-slate-700 shadow-none transition-all duration-200 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900 active:scale-[0.98]" onClick={() => router.back()}>
             Back
           </Button>
