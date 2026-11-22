@@ -8,13 +8,13 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export default function DoctorCardSkeleton() {
     return (
-        <Card className="gap-0 overflow-hidden rounded-[2.25rem] border border-slate-100 bg-white p-2.5 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+        <Card className="gap-0 overflow-hidden mx-auto w-full max-w-[22rem] rounded-3xl border border-slate-100 bg-white p-2 shadow-sm dark:border-slate-800 dark:bg-slate-900">
             <CardHeader className="p-0">
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-3">
                     {/* Avatar Skeleton */}
-                    <Skeleton className="aspect-[1.16/1] w-full rounded-[1.625rem] bg-slate-100 dark:bg-slate-800" />
+                    <Skeleton className="aspect-[16/11] w-full rounded-2xl bg-slate-100 dark:bg-slate-800" />
 
-                    <div className="flex-1 space-y-2 px-4 pt-4">
+                    <div className="flex-1 space-y-2 px-3 pt-1">
                         {/* Name Skeleton */}
                         <Skeleton className="h-5 w-3/4 rounded-md bg-slate-100 dark:bg-slate-800" />
                         {/* Designation Skeleton */}
@@ -25,7 +25,7 @@ export default function DoctorCardSkeleton() {
                 </div>
             </CardHeader>
 
-            <CardContent className="flex min-h-48 flex-col space-y-3.5 px-4 pb-5 pt-1">
+            <CardContent className="flex min-h-40 flex-col space-y-3 px-3 pb-3 pt-1">
                 {/* Experience and Fee */}
                 <div className="grid grid-cols-2 gap-3">
                     <Skeleton className="h-8 w-full rounded-full bg-slate-100 dark:bg-slate-800" />
@@ -53,9 +53,9 @@ export default function DoctorCardSkeleton() {
                 </div>
             </CardContent>
 
-            <CardFooter className="flex gap-2.5 px-4 pb-3 pt-1">
-                <Skeleton className="h-11 flex-1 rounded-xl bg-slate-100 dark:bg-slate-800" />
-                <Skeleton className="h-11 flex-1 rounded-xl bg-blue-100 dark:bg-blue-950" />
+            <CardFooter className="flex gap-2 px-3 pb-2 pt-1">
+                <Skeleton className="h-9 flex-1 rounded-lg bg-slate-100 dark:bg-slate-800" />
+                <Skeleton className="h-9 flex-1 rounded-lg bg-blue-100 dark:bg-blue-950" />
             </CardFooter>
         </Card>
     );

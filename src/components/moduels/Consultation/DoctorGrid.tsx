@@ -20,7 +20,7 @@ export default function DoctorGrid({ doctors }: DoctorGridProps) {
   }
 
   return (
-    <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 lg:grid-cols-3 [&>*:nth-child(2)]:[animation-delay:80ms] [&>*:nth-child(3)]:[animation-delay:160ms] [&>*:nth-child(4)]:[animation-delay:240ms] [&>*:nth-child(5)]:[animation-delay:320ms] [&>*:nth-child(6)]:[animation-delay:400ms]">
+    <div className="grid grid-cols-1 items-stretch gap-5 sm:grid-cols-2 xl:grid-cols-3 [&>*:nth-child(2)]:[animation-delay:80ms] [&>*:nth-child(3)]:[animation-delay:160ms] [&>*:nth-child(4)]:[animation-delay:240ms] [&>*:nth-child(5)]:[animation-delay:320ms] [&>*:nth-child(6)]:[animation-delay:400ms]">
       {doctors.map((doctor) => (
         <DoctorCard key={doctor.id} doctor={doctor} />
       ))}

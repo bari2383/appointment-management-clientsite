@@ -73,8 +73,8 @@ export default function DoctorSearchFilters({
     searchParams.get("searchTerm") || searchParams.get("specialties");
 
   return (
-    <div className="space-y-4 animate-in fade-in slide-in-from-top-2 [animation-duration:500ms] motion-reduce:animate-none">
-      <div className="flex flex-col md:flex-row gap-4">
+    <div className="rounded-2xl border border-slate-200/80 bg-white p-3 shadow-lg shadow-slate-900/[0.05] lg:p-5 animate-in fade-in slide-in-from-top-2 [animation-duration:500ms] motion-reduce:animate-none sm:p-4 dark:border-slate-800 dark:bg-slate-900">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center lg:flex-col lg:items-stretch">
         {/* Search Input */}
         {/* <div className="flex-1 relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -91,7 +91,7 @@ export default function DoctorSearchFilters({
           value={searchParams.get("specialties") || "all"}
           onValueChange={(value) => updateFilters("specialties", value)}
         >
-          <SelectTrigger className="w-full rounded-xl border-slate-200 bg-white shadow-none transition-colors duration-200 hover:border-slate-300 focus-visible:border-blue-400 focus-visible:ring-blue-500/20 data-[size=default]:h-10 dark:border-slate-800 dark:bg-slate-900 md:w-62.5">
+          <SelectTrigger className="w-full rounded-xl border-slate-200 bg-slate-50/60 text-sm shadow-none transition-colors duration-200 hover:border-slate-300 hover:bg-white focus-visible:border-blue-500 focus-visible:bg-white focus-visible:ring-blue-500/20 data-[size=default]:h-11 dark:border-slate-800 dark:bg-slate-900 sm:flex-1">
             <SelectValue placeholder="Select Specialty" />
           </SelectTrigger>
           <SelectContent>
@@ -109,7 +109,7 @@ export default function DoctorSearchFilters({
           value={searchParams.get("gender") || "all"}
           onValueChange={(value) => updateFilters("gender", value)}
         >
-          <SelectTrigger className="w-full rounded-xl border-slate-200 bg-white shadow-none transition-colors duration-200 hover:border-slate-300 focus-visible:border-blue-400 focus-visible:ring-blue-500/20 data-[size=default]:h-10 dark:border-slate-800 dark:bg-slate-900 md:w-45">
+          <SelectTrigger className="w-full rounded-xl border-slate-200 bg-slate-50/60 text-sm shadow-none transition-colors duration-200 hover:border-slate-300 hover:bg-white focus-visible:border-blue-500 focus-visible:bg-white focus-visible:ring-blue-500/20 data-[size=default]:h-11 dark:border-slate-800 dark:bg-slate-900 sm:flex-1">
             <SelectValue placeholder="Gender" />
           </SelectTrigger>
           <SelectContent>
@@ -124,7 +124,7 @@ export default function DoctorSearchFilters({
           <Button
             variant="outline"
             onClick={handleClearFilters}
-            className="h-10 w-full rounded-xl border-slate-200 bg-white text-sm font-medium text-slate-700 shadow-none transition-all duration-200 hover:bg-slate-50 active:scale-[0.97] animate-in fade-in zoom-in-95 [animation-duration:200ms] motion-reduce:animate-none md:w-auto dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"
+            className="h-11 w-full rounded-xl border-slate-200 bg-white text-sm font-medium text-slate-700 shadow-none transition-all duration-200 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 active:scale-[0.97] sm:ml-auto lg:ml-0 animate-in fade-in zoom-in-95 [animation-duration:200ms] motion-reduce:animate-none sm:w-auto lg:w-full dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"
           >
             Clear Filters
           </Button>
