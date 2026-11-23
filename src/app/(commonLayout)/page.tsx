@@ -322,54 +322,54 @@ export default function HomePage() {
     return (
         <main className="overflow-hidden bg-white text-slate-950">
             {/* HERO SECTION */}
-
-            <section className="relative isolate overflow-hidden border-b border-slate-100 bg-white text-slate-950">
-                {/* Background image: kept subtle so the content stays readable. */}
-                <div aria-hidden className="absolute inset-0 -z-20">
+            <section className="relative isolate overflow-hidden bg-slate-50 text-slate-950">
+                {/* Full-width healthcare photo background */}
+                <div aria-hidden className="pointer-events-none absolute inset-0 -z-20">
                     <Image
                         src={doctorPatientHome}
                         alt=""
                         fill
                         priority
                         sizes="100vw"
-                        className="object-cover object-[65%_center]"
+                        className="object-cover object-center"
                     />
                 </div>
-                <div
-                    aria-hidden
-                    className="absolute inset-0 -z-10 bg-white/55 sm:bg-white/45 lg:bg-gradient-to-r lg:from-white/90 lg:via-white/55 lg:to-white/15"
-                />
+                {/* Keep the healthcare photo visible, with a soft contrast layer for readability. */}
+                <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-white/55" />
+                <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-white/35 via-white/55 to-slate-50/90" />
+                <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.12)_0%,rgba(255,255,255,0.52)_76%)]" />
+                <div aria-hidden className="pointer-events-none absolute -right-32 top-24 -z-10 size-[28rem] rounded-full bg-blue-200/35 blur-3xl" />
+                <div aria-hidden className="pointer-events-none absolute -left-32 bottom-10 -z-10 size-[24rem] rounded-full bg-sky-200/35 blur-3xl" />
 
-                <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-10 px-4 py-12 sm:px-6 sm:py-16 md:gap-12 lg:grid-cols-2 lg:gap-10 lg:px-8 lg:py-20">
-                    {/* Hero content */}
-                    <div className="mx-auto w-full max-w-2xl min-w-0 lg:mx-0">
-                        <div className={`mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-1.5 text-[11px] font-semibold text-blue-700 sm:mb-6 sm:px-3.5 sm:text-xs ${enter}`}>
+                <div className="mx-auto w-full max-w-7xl px-4 pb-16 pt-16 sm:px-6 sm:pb-20 sm:pt-20 lg:px-8 lg:pb-24 lg:pt-24">
+                    {/* Centered hero introduction */}
+                    <div className="mx-auto w-full max-w-6xl text-center">
+                        <div className={`mx-auto mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-blue-200/90 bg-white/85 px-4 py-2 text-xs font-semibold text-blue-700 shadow-sm backdrop-blur-md sm:text-sm ${enter}`}>
                             <ShieldCheck className="size-4 shrink-0 text-blue-600" />
                             <span>Safe and convenient online healthcare</span>
                         </div>
 
                         <h1
                             style={{ animationDelay: "100ms" }}
-                            className={`max-w-2xl text-balance font-heading text-3xl font-extrabold leading-[1.12] tracking-tight text-slate-950 sm:text-4xl md:text-5xl lg:text-6xl ${enter}`}
+                            className={`mx-auto w-full max-w-none text-balance font-heading text-4xl font-extrabold leading-[1.08] tracking-tight text-slate-950 sm:text-5xl md:text-6xl lg:text-6xl xl:text-[4.25rem] ${enter}`}
                         >
-                            Book a Doctor Online.
+                            <span className="block">Healthcare that fits your life.</span>
                             <span className="mt-2 block text-blue-600">
-                                Consult from Anywhere with Confidence.
+                                Expert care, just a few clicks away.
                             </span>
                         </h1>
 
                         <p
                             style={{ animationDelay: "200ms" }}
-                            className={`mt-5 max-w-xl text-sm leading-7 text-slate-600 sm:mt-6 sm:text-base sm:leading-8 lg:text-lg ${enter}`}
+                            className={`mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-700 sm:mt-6 sm:text-base sm:leading-8 lg:text-lg ${enter}`}
                         >
-                            Connect with qualified medical professionals through a simple
-                            online healthcare experience. Find doctors, select an available
-                            time and manage your appointments from one place.
+                            Find trusted doctors, choose a convenient consultation time and
+                            manage your appointments through one simple online platform.
                         </p>
 
                         <div
                             style={{ animationDelay: "300ms" }}
-                            className={`mt-7 flex w-full flex-col gap-3 sm:w-auto sm:flex-row ${enter}`}
+                            className={`mt-7 flex w-full flex-col justify-center gap-3 sm:mt-8 sm:w-auto sm:flex-row ${enter}`}
                         >
                             <PrimaryButton href="/doctors">
                                 <Search className="size-4" />
@@ -380,36 +380,28 @@ export default function HomePage() {
                                 How It Works
                             </SecondaryButton>
                         </div>
-
-                        <div
-                            style={{ animationDelay: "400ms" }}
-                            className={`mt-9 grid max-w-xl grid-cols-3 divide-x divide-slate-200/90 border-t border-slate-200/90 pt-5 sm:mt-12 sm:pt-7 ${enter}`}
-                        >
-                            <div className="min-w-0 pr-2 sm:pr-4">
-                                <p className="font-heading text-xl font-extrabold text-slate-950 sm:text-2xl lg:text-3xl">500+</p>
-                                <p className="mt-1 text-[11px] text-slate-500 sm:text-sm">Doctors</p>
-                            </div>
-                            <div className="min-w-0 px-2 sm:px-4">
-                                <p className="font-heading text-xl font-extrabold text-slate-950 sm:text-2xl lg:text-3xl">100%</p>
-                                <p className="mt-1 text-[11px] text-slate-500 sm:text-sm">Online</p>
-                            </div>
-                            <div className="min-w-0 pl-2 sm:pl-4">
-                                <p className="font-heading text-xl font-extrabold text-blue-600 sm:text-2xl lg:text-3xl">Secure</p>
-                                <p className="mt-1 text-[11px] text-slate-500 sm:text-sm">Healthcare</p>
-                            </div>
-                        </div>
                     </div>
 
-                    {/* Existing appointment preview component */}
+                    {/* Trust points */}
                     <div
-                        style={{ animationDelay: "250ms" }}
-                        className={`mx-auto w-full min-w-0 max-w-xl lg:max-w-none ${enter}`}
+                        style={{ animationDelay: "450ms" }}
+                        className={`mx-auto mt-9 flex max-w-3xl flex-wrap items-center justify-center gap-x-7 gap-y-3 border-t border-slate-200/80 pt-6 ${enter}`}
                     >
-                        <HeroAppointmentPreview className="w-full [&>div]:mx-auto [&>div]:w-full [&>div]:max-w-full [&>div]:border-slate-200 [&>div]:shadow-[0_24px_60px_-24px_rgba(15,23,42,0.28)]" />
+                        <div className="flex items-center gap-2 text-sm font-medium text-slate-700">
+                            <span className="flex size-8 items-center justify-center rounded-full bg-blue-100/90 text-blue-700"><BadgeCheck className="size-4" /></span>
+                            Verified doctors
+                        </div>
+                        <div className="flex items-center gap-2 text-sm font-medium text-slate-700">
+                            <span className="flex size-8 items-center justify-center rounded-full bg-blue-100/90 text-blue-700"><CalendarDays className="size-4" /></span>
+                            Easy booking
+                        </div>
+                        <div className="flex items-center gap-2 text-sm font-medium text-slate-700">
+                            <span className="flex size-8 items-center justify-center rounded-full bg-blue-100/90 text-blue-700"><LockKeyhole className="size-4" /></span>
+                            Secure care
+                        </div>
                     </div>
                 </div>
             </section>
-
 
             {/* SPECIALTIES SECTION */}
 
@@ -473,7 +465,10 @@ export default function HomePage() {
 
             {/* APPOINTMENT STEPS SECTION */}
 
-            <section className="border-y border-slate-100 bg-slate-50 py-14 sm:py-16 lg:py-24">
+            <section className="relative isolate overflow-hidden border-y border-slate-100 bg-slate-50 py-14 sm:py-16 lg:py-24">
+                <div aria-hidden className="pointer-events-none absolute -right-40 top-20 -z-10 size-[30rem] rounded-full bg-blue-100/70 blur-3xl" />
+                <div aria-hidden className="pointer-events-none absolute -left-40 bottom-0 -z-10 size-[24rem] rounded-full bg-sky-100/70 blur-3xl" />
+
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <SectionHeading
                         eyebrow="Simple Process"
@@ -481,39 +476,44 @@ export default function HomePage() {
                         description="Getting medical advice online should be simple, clear and convenient."
                     />
 
-                    <div className="relative grid gap-6 md:grid-cols-3 md:gap-8">
-                        {/* dashed connector behind the cards (desktop) */}
-                        <div
-                            aria-hidden
-                            className="absolute left-[16.67%] right-[16.67%] top-14 hidden border-t-2 border-dashed border-blue-200 md:block"
-                        />
+                    {/* The three steps sit beside the animated booking walkthrough on wide screens. */}
+                    <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:gap-10 xl:gap-14">
+                        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+                            {appointmentSteps.map((step, index) => {
+                                const Icon = step.icon;
 
-                        {appointmentSteps.map((step) => {
-                            const Icon = step.icon;
-
-                            return (
-                                <div
-                                    key={step.title}
-                                    className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 text-center sm:rounded-3xl sm:p-8 transition duration-300 hover:-translate-y-1.5 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-500/10"
-                                >
-                                    <div className="absolute right-5 top-3 font-heading text-6xl font-extrabold leading-none text-slate-100 transition-colors duration-300 group-hover:text-blue-100">
-                                        {step.number}
+                                return (
+                                    <div
+                                        key={step.title}
+                                        className={`group relative flex min-h-[148px] items-center gap-4 overflow-hidden rounded-2xl border border-slate-200/90 bg-white/95 p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-500/10 sm:p-6 ${index === 2 ? "sm:col-span-2 lg:col-span-1" : ""}`}
+                                    >
+                                        <span className="absolute right-4 top-2 font-heading text-5xl font-extrabold leading-none text-slate-100 transition-colors duration-300 group-hover:text-blue-100">
+                                            {step.number}
+                                        </span>
+                                        <div className="relative flex size-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 text-white shadow-lg shadow-blue-600/20 transition duration-300 group-hover:scale-105 sm:size-14 sm:rounded-2xl">
+                                            <Icon className="size-5 sm:size-6" />
+                                        </div>
+                                        <div className="relative min-w-0">
+                                            <h3 className="font-heading text-base font-bold text-slate-900 sm:text-lg">
+                                                {step.title}
+                                            </h3>
+                                            <p className="mt-1.5 text-sm leading-6 text-slate-500">
+                                                {step.description}
+                                            </p>
+                                        </div>
                                     </div>
+                                );
+                            })}
+                        </div>
 
-                                    <div className="relative mx-auto mb-6 flex size-14 items-center justify-center rounded-2xl bg-linear-to-br from-blue-600 to-blue-800 text-white shadow-lg shadow-blue-600/30 ring-8 ring-white transition duration-300 group-hover:scale-110">
-                                        <Icon className="size-6" />
-                                    </div>
-
-                                    <h3 className="relative font-heading text-lg font-bold text-slate-900">
-                                        {step.title}
-                                    </h3>
-
-                                    <p className="relative mt-3 text-sm leading-6 text-slate-500">
-                                        {step.description}
-                                    </p>
-                                </div>
-                            );
-                        })}
+                        <div className="relative min-w-0">
+                            <div aria-hidden className="pointer-events-none absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-blue-200/70 via-white/30 to-sky-200/70 blur-2xl sm:-inset-6" />
+                            <div aria-hidden className="pointer-events-none absolute -right-4 -top-5 size-24 rounded-full border border-blue-200/70 bg-blue-100/20 motion-safe:animate-[pulse_5s_ease-in-out_infinite] sm:-right-6 sm:size-32" />
+                            <div aria-hidden className="pointer-events-none absolute -bottom-4 -left-4 size-20 rounded-full border border-sky-200/70 bg-sky-100/20 motion-safe:animate-[pulse_6s_ease-in-out_infinite] sm:-bottom-6 sm:-left-6 sm:size-28" />
+                            <div className={`relative min-w-0 rounded-[1.5rem] border border-white/90 bg-white/85 p-2 shadow-[0_28px_80px_-32px_rgba(37,99,235,0.35)] backdrop-blur-md sm:rounded-[2rem] sm:p-3 lg:p-4 ${enter}`} style={{ animationDelay: "250ms" }}>
+                                <HeroAppointmentPreview className="w-full min-w-0 [&>div]:mx-auto [&>div]:w-full [&>div]:max-w-full [&>div]:border-slate-200 [&>div]:shadow-[0_24px_60px_-24px_rgba(15,23,42,0.22)]" />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
