@@ -4,7 +4,7 @@
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { ChevronRight, LogOut, PanelLeft } from "lucide-react"
+import { ChevronRight, LogOut } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { getIconComponent } from "@/lib/icon-mapper"
@@ -150,261 +150,271 @@ const DashboardSidebarContent = ({
         <TooltipProvider delayDuration={100}>
             <aside
                 className={cn(
-                    "relative hidden h-screen min-h-0 flex-col bg-blue-600 transition-[width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:flex",
-                    isCollapsed ? "w-20" : "w-72"
+                    "relative hidden h-screen min-h-0 shrink-0 flex-col bg-[#E8EEFB] p-3 transition-[width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:flex",
+                    isCollapsed ? "w-24" : "w-72"
                 )}
             >
-                {/* Background decoration */}
-                <div className="pointer-events-none absolute inset-0 overflow-hidden">
-                    <div className="absolute -left-16 -top-16 h-52 w-52 rounded-full bg-white/10 blur-3xl" />
-                    <div className="absolute -bottom-20 -left-10 h-56 w-56 rounded-full bg-blue-400/20 blur-3xl" />
-                </div>
-
-                {/* Collapse Button */}
+                {/* Collapse Button (sits on the card's right edge) */}
                 <button
                     type="button"
                     onClick={() => setIsCollapsed((prev) => !prev)}
                     aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
-                    className="absolute -right-3.5 top-9 z-30 flex size-7 items-center justify-center rounded-full border border-blue-100 bg-white text-blue-600 shadow-md transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-110 hover:bg-blue-50 hover:shadow-lg active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 motion-reduce:hover:scale-100 motion-reduce:active:scale-100"
+                    className="absolute -right-0.5 top-10 z-30 flex size-7 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg shadow-blue-600/30 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-110 hover:bg-blue-700 hover:shadow-xl active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 motion-reduce:hover:scale-100 motion-reduce:active:scale-100"
                 >
-                    <PanelLeft
+                    <ChevronRight
                         className={cn(
                             "size-4 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
-                            isCollapsed && "rotate-180"
+                            !isCollapsed && "rotate-180"
                         )}
                     />
                 </button>
 
-                {/* Logo */}
-                <div className="relative z-10 shrink-0 px-4 pt-5 animate-in fade-in slide-in-from-top-2 duration-700 fill-mode-both motion-reduce:animate-none">
-                    <Link
-                        href={dashboardHome}
-                        className={cn(
-                            "flex items-center justify-center overflow-hidden bg-white shadow-lg shadow-blue-900/20 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-900/25 active:translate-y-0 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 motion-reduce:hover:translate-y-0 motion-reduce:active:scale-100",
-                            isCollapsed
-                                ? "mx-auto size-12 rounded-2xl"
-                                : "h-20 w-full rounded-2xl"
-                        )}
-                    >
-                        {!isCollapsed ? (
-                            <div className="min-w-0 scale-90 animate-in fade-in duration-700 fill-mode-both motion-reduce:animate-none">
-                                <BrandLogo />
-                            </div>
-                        ) : (
-                            <div className="relative h-full w-full p-1.5 animate-in fade-in zoom-in-95 duration-500 fill-mode-both motion-reduce:animate-none">
-                                <Image
-                                    src={logoImage}
-                                    alt="Tarevia"
-                                    fill
-                                    priority
-                                    sizes="48px"
-                                    className="object-contain p-1.5"
-                                />
-                            </div>
-                        )}
-                    </Link>
-                </div>
+                {/* White floating card */}
+                <div className="relative flex min-h-0 flex-1 flex-col overflow-hidden rounded-3xl border border-white bg-white shadow-xl shadow-blue-200/60 animate-in fade-in slide-in-from-left-4 duration-700 fill-mode-both motion-reduce:animate-none">
+                    {/* Logo */}
+                    <div className="shrink-0 px-3 pt-4">
+                        <Link
+                            href={dashboardHome}
+                            className={cn(
+                                "flex items-center justify-center overflow-hidden rounded-2xl transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 motion-reduce:hover:translate-y-0 motion-reduce:active:scale-100",
+                                isCollapsed ? "mx-auto size-14" : "h-20 w-full"
+                            )}
+                        >
+                            {!isCollapsed ? (
+                                <div className="min-w-0 scale-90 animate-in fade-in duration-700 fill-mode-both motion-reduce:animate-none">
+                                    <BrandLogo />
+                                </div>
+                            ) : (
+                                <div className="relative h-full w-full animate-in fade-in zoom-in-95 duration-500 fill-mode-both motion-reduce:animate-none">
+                                    <Image
+                                        src={logoImage}
+                                        alt="Tarevia"
+                                        fill
+                                        priority
+                                        sizes="56px"
+                                        className="object-contain p-1.5"
+                                    />
+                                </div>
+                            )}
+                        </Link>
+                    </div>
 
-                {/* Navigation */}
-                <ScrollArea className="relative z-10 min-h-0 flex-1">
-                    <div
-                        className={cn(
-                            "py-7 pr-0 transition-[padding] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
-                            isCollapsed ? "pl-3" : "pl-4"
-                        )}
-                    >
-                        <div ref={listRef} className="relative">
-                            {/* Sliding white active tab */}
-                            <div
-                                aria-hidden="true"
-                                className={cn(
-                                    "pointer-events-none absolute inset-x-0 top-0 z-0",
-                                    skipMove
-                                        ? "transition-none"
-                                        : "transition-[transform,height] duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none"
-                                )}
-                                style={{
-                                    height: indicator.height,
-                                    transform: `translateY(${indicator.top}px)`,
-                                }}
-                            >
+                    {/* Navigation */}
+                    <ScrollArea className="min-h-0 flex-1">
+                        <div
+                            className={cn(
+                                "py-4 transition-[padding] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                                isCollapsed ? "px-3" : "px-4"
+                            )}
+                        >
+                            <div ref={listRef} className="relative">
+                                {/* Sliding solid active block */}
                                 <div
+                                    aria-hidden="true"
                                     className={cn(
-                                        "relative h-full rounded-l-2xl bg-white shadow-md shadow-blue-900/10 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none",
-                                        "before:pointer-events-none before:absolute before:-top-5 before:right-0 before:size-5 before:rounded-br-[20px] before:shadow-[6px_6px_0_6px_#fff]",
-                                        "after:pointer-events-none after:absolute after:-bottom-5 after:right-0 after:size-5 after:rounded-tr-[20px] after:shadow-[6px_-6px_0_6px_#fff]",
-                                        isIndicatorVisible
-                                            ? "translate-x-0 opacity-100"
-                                            : "translate-x-full opacity-0"
+                                        "pointer-events-none absolute inset-x-0 top-0 z-0",
+                                        skipMove
+                                            ? "transition-none"
+                                            : "transition-[transform,height] duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none"
                                     )}
-                                />
-                            </div>
-
-                            <div className="space-y-6">
-                                {navItems.map((section, sectionIndex) => (
-                                    <div key={sectionIndex}>
-                                        {!isCollapsed && section.title && (
-                                            <p className="mb-3 px-4 text-[11px] font-semibold uppercase tracking-[0.14em] text-blue-200 animate-in fade-in duration-700 fill-mode-both motion-reduce:animate-none">
-                                                {section.title}
-                                            </p>
+                                    style={{
+                                        height: indicator.height,
+                                        transform: `translateY(${indicator.top}px)`,
+                                    }}
+                                >
+                                    <div
+                                        className={cn(
+                                            "h-full rounded-xl bg-blue-600 shadow-lg shadow-blue-600/30 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none",
+                                            isIndicatorVisible
+                                                ? "translate-x-0 opacity-100"
+                                                : "translate-x-full opacity-0"
                                         )}
+                                    />
+                                </div>
 
-                                        <div className="space-y-2.5">
-                                            {section.items.map((item: any, itemIndex: number) => {
-                                                const isActive = item.href === activeHref
-                                                const isActiveShown = isActive && isIndicatorVisible
+                                <div className="space-y-5">
+                                    {navItems.map((section, sectionIndex) => (
+                                        <div key={sectionIndex}>
+                                            {!isCollapsed && section.title && (
+                                                <p className="mb-2 px-3 text-xs font-medium tracking-wide text-slate-400 animate-in fade-in duration-700 fill-mode-both motion-reduce:animate-none">
+                                                    {section.title}
+                                                </p>
+                                            )}
 
-                                                const Icon = getIconComponent(
-                                                    item.icon
-                                                )
+                                            <div className="space-y-1.5">
+                                                {section.items.map((item: any, itemIndex: number) => {
+                                                    const isActive = item.href === activeHref
+                                                    const isActiveShown = isActive && isIndicatorVisible
 
-                                                const animationDelay = `${Math.min(
-                                                    (sectionIndex * 3 + itemIndex) * 70,
-                                                    700
-                                                )}ms`
+                                                    const Icon = getIconComponent(
+                                                        item.icon
+                                                    )
 
-                                                const navLink = (
-                                                    <Link
-                                                        ref={(el) => {
-                                                            itemRefs.current[item.href] = el
-                                                        }}
-                                                        href={item.href}
-                                                        aria-current={isActive ? "page" : undefined}
-                                                        onClick={(e) => {
-                                                            if (
-                                                                e.button === 0 &&
-                                                                !e.metaKey &&
-                                                                !e.ctrlKey &&
-                                                                !e.shiftKey &&
-                                                                !e.altKey
-                                                            ) {
-                                                                setPendingHref(item.href)
-                                                            }
-                                                        }}
-                                                        className={cn(
-                                                            "group relative z-10 flex h-12 items-center rounded-l-2xl text-sm font-medium transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60",
-                                                            isCollapsed
-                                                                ? "justify-center"
-                                                                : "gap-3 pl-3 pr-4",
-                                                            isActiveShown
-                                                                ? "text-blue-700"
-                                                                : "text-white/90 hover:-translate-y-0.5 hover:bg-white/15 hover:text-white hover:shadow-lg hover:shadow-blue-900/20 active:translate-y-0 active:scale-[0.98] motion-reduce:hover:translate-y-0 motion-reduce:active:scale-100"
-                                                        )}
-                                                    >
-                                                        <div
+                                                    const animationDelay = `${Math.min(
+                                                        (sectionIndex * 3 + itemIndex) * 70,
+                                                        700
+                                                    )}ms`
+
+                                                    const navLink = (
+                                                        <Link
+                                                            ref={(el) => {
+                                                                itemRefs.current[item.href] = el
+                                                            }}
+                                                            href={item.href}
+                                                            aria-current={isActive ? "page" : undefined}
+                                                            onClick={(e) => {
+                                                                if (
+                                                                    e.button === 0 &&
+                                                                    !e.metaKey &&
+                                                                    !e.ctrlKey &&
+                                                                    !e.shiftKey &&
+                                                                    !e.altKey
+                                                                ) {
+                                                                    setPendingHref(item.href)
+                                                                }
+                                                            }}
                                                             className={cn(
-                                                                "flex size-9 shrink-0 items-center justify-center rounded-xl transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                                                                "group relative z-10 flex h-12 items-center rounded-xl text-sm font-medium transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300",
+                                                                isCollapsed
+                                                                    ? "justify-center"
+                                                                    : "gap-3 px-3",
                                                                 isActiveShown
-                                                                    ? "bg-blue-600 text-white shadow-md shadow-blue-600/30 group-hover:scale-105 motion-reduce:group-hover:scale-100"
-                                                                    : "text-white group-hover:scale-105 group-hover:bg-white/20 motion-reduce:group-hover:scale-100"
+                                                                    ? "text-white"
+                                                                    : "text-slate-600 hover:-translate-y-0.5 hover:bg-blue-50 hover:text-blue-700 hover:shadow-md hover:shadow-blue-100 active:translate-y-0 active:scale-[0.98] motion-reduce:hover:translate-y-0 motion-reduce:active:scale-100"
                                                             )}
                                                         >
-                                                            <Icon className="size-[18px]" />
-                                                        </div>
+                                                            <Icon
+                                                                className={cn(
+                                                                    "size-5 shrink-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                                                                    isActiveShown
+                                                                        ? "text-white"
+                                                                        : "text-slate-500 group-hover:scale-110 group-hover:text-blue-600 motion-reduce:group-hover:scale-100"
+                                                                )}
+                                                            />
 
-                                                        {!isCollapsed && (
-                                                            <>
-                                                                <span
-                                                                    className={cn(
-                                                                        "min-w-0 flex-1 truncate transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] animate-in fade-in duration-700 fill-mode-both motion-reduce:animate-none",
-                                                                        isActiveShown
-                                                                            ? "font-semibold text-blue-700"
-                                                                            : "text-white/90 group-hover:text-white"
-                                                                    )}
-                                                                >
-                                                                    {item.title}
-                                                                </span>
-
-                                                                {item.badge ? (
-                                                                    <Badge
-                                                                        variant="outline"
+                                                            {!isCollapsed && (
+                                                                <>
+                                                                    <span
                                                                         className={cn(
-                                                                            "rounded-lg px-2 py-0.5 text-xs font-semibold transition-colors duration-500",
+                                                                            "min-w-0 flex-1 truncate transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] animate-in fade-in duration-700 fill-mode-both motion-reduce:animate-none",
                                                                             isActiveShown
-                                                                                ? "border-blue-100 bg-blue-50 text-blue-600"
-                                                                                : "border-white/20 bg-white/10 text-white group-hover:bg-white/25"
+                                                                                ? "font-semibold text-white"
+                                                                                : "text-slate-600 group-hover:text-blue-700"
                                                                         )}
                                                                     >
-                                                                        {item.badge}
-                                                                    </Badge>
-                                                                ) : (
-                                                                    <ChevronRight
-                                                                        className={cn(
-                                                                            "size-4 -translate-x-1 text-white/80 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0 group-hover:opacity-100 motion-reduce:translate-x-0",
-                                                                            isActiveShown &&
-                                                                            "translate-x-0 text-blue-400 opacity-100 group-hover:translate-x-0.5 motion-reduce:group-hover:translate-x-0"
-                                                                        )}
-                                                                    />
-                                                                )}
-                                                            </>
-                                                        )}
-                                                    </Link>
-                                                )
+                                                                        {item.title}
+                                                                    </span>
 
-                                                const itemContent = isCollapsed ? (
-                                                    <Tooltip>
-                                                        <TooltipTrigger asChild>
-                                                            {navLink}
-                                                        </TooltipTrigger>
+                                                                    {item.badge ? (
+                                                                        <Badge
+                                                                            variant="outline"
+                                                                            className={cn(
+                                                                                "h-5 min-w-5 justify-center rounded-full border-transparent px-1.5 text-[11px] font-semibold transition-colors duration-500",
+                                                                                isActiveShown
+                                                                                    ? "bg-white/25 text-white"
+                                                                                    : "bg-blue-100 text-blue-700 group-hover:bg-blue-200"
+                                                                            )}
+                                                                        >
+                                                                            {item.badge}
+                                                                        </Badge>
+                                                                    ) : (
+                                                                        <ChevronRight
+                                                                            className={cn(
+                                                                                "size-4 -translate-x-1 text-slate-300 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0 group-hover:opacity-100 motion-reduce:translate-x-0",
+                                                                                isActiveShown &&
+                                                                                "translate-x-0 text-white/80 opacity-100 group-hover:translate-x-0.5 motion-reduce:group-hover:translate-x-0"
+                                                                            )}
+                                                                        />
+                                                                    )}
+                                                                </>
+                                                            )}
+                                                        </Link>
+                                                    )
 
-                                                        <TooltipContent
-                                                            side="right"
-                                                            sideOffset={10}
-                                                            className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-medium text-slate-700 shadow-lg"
+                                                    const itemContent = isCollapsed ? (
+                                                        <Tooltip>
+                                                            <TooltipTrigger asChild>
+                                                                {navLink}
+                                                            </TooltipTrigger>
+
+                                                            <TooltipContent
+                                                                side="right"
+                                                                sideOffset={22}
+                                                                className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-medium text-slate-700 shadow-lg"
+                                                            >
+                                                                {item.title}
+                                                            </TooltipContent>
+                                                        </Tooltip>
+                                                    ) : (
+                                                        navLink
+                                                    )
+
+                                                    return (
+                                                        <div
+                                                            key={item.href}
+                                                            style={{ animationDelay }}
+                                                            className="animate-in fade-in slide-in-from-left-2 duration-700 fill-mode-both motion-reduce:animate-none"
                                                         >
-                                                            {item.title}
-                                                        </TooltipContent>
-                                                    </Tooltip>
-                                                ) : (
-                                                    navLink
-                                                )
-
-                                                return (
-                                                    <div
-                                                        key={item.href}
-                                                        style={{ animationDelay }}
-                                                        className="animate-in fade-in slide-in-from-left-2 duration-700 fill-mode-both motion-reduce:animate-none"
-                                                    >
-                                                        {itemContent}
-                                                    </div>
-                                                )
-                                            })}
+                                                            {itemContent}
+                                                        </div>
+                                                    )
+                                                })}
+                                            </div>
                                         </div>
-
-                                        {sectionIndex <
-                                            navItems.length - 1 && (
-                                                <div
-                                                    className={cn(
-                                                        "mt-6 h-px bg-white/15",
-                                                        isCollapsed
-                                                            ? "mr-3"
-                                                            : "mr-4 ml-4"
-                                                    )}
-                                                />
-                                            )}
-                                    </div>
-                                ))}
+                                    ))}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </ScrollArea>
+                    </ScrollArea>
 
-                {/* User Section */}
-                <div
-                    className={cn(
-                        "relative z-10 shrink-0 border-t border-white/10 transition-[padding] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] animate-in fade-in slide-in-from-bottom-2 duration-700 fill-mode-both motion-reduce:animate-none",
-                        isCollapsed ? "p-3" : "p-4"
-                    )}
-                >
-                    {isCollapsed ? (
-                        <div className="space-y-2 animate-in fade-in duration-500 fill-mode-both motion-reduce:animate-none">
+                    {/* Bottom: Logout + User */}
+                    <div
+                        className={cn(
+                            "shrink-0 border-t border-slate-100 pb-3 pt-3 transition-[padding] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] animate-in fade-in slide-in-from-bottom-2 duration-700 fill-mode-both motion-reduce:animate-none",
+                            isCollapsed ? "px-3" : "px-4"
+                        )}
+                    >
+                        {/* Logout */}
+                        {isCollapsed ? (
                             <Tooltip>
                                 <TooltipTrigger asChild>
                                     <button
                                         type="button"
-                                        className="group flex h-12 w-full items-center justify-center rounded-xl transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:bg-white/15 active:translate-y-0 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 motion-reduce:hover:translate-y-0 motion-reduce:active:scale-100"
+                                        onClick={handleLogout}
+                                        className="group flex h-12 w-full items-center justify-center rounded-xl text-slate-500 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:bg-red-50 hover:text-red-500 hover:shadow-md hover:shadow-red-100 active:translate-y-0 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-200 motion-reduce:hover:translate-y-0 motion-reduce:active:scale-100"
                                     >
-                                        <div className="flex size-10 items-center justify-center rounded-full bg-white text-sm font-semibold text-blue-700 ring-2 ring-white/30 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105 group-hover:ring-white/60 motion-reduce:group-hover:scale-100">
+                                        <LogOut className="size-5 transition-transform duration-300 group-hover:-translate-x-0.5 motion-reduce:group-hover:translate-x-0" />
+                                    </button>
+                                </TooltipTrigger>
+
+                                <TooltipContent
+                                    side="right"
+                                    sideOffset={22}
+                                    className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-medium text-slate-700 shadow-lg"
+                                >
+                                    Logout
+                                </TooltipContent>
+                            </Tooltip>
+                        ) : (
+                            <button
+                                type="button"
+                                onClick={handleLogout}
+                                className="group flex h-12 w-full items-center gap-3 rounded-xl px-3 text-sm font-medium text-slate-600 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:bg-red-50 hover:text-red-500 hover:shadow-md hover:shadow-red-100 active:translate-y-0 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-200 motion-reduce:hover:translate-y-0 motion-reduce:active:scale-100"
+                            >
+                                <LogOut className="size-5 shrink-0 transition-transform duration-300 group-hover:-translate-x-0.5 motion-reduce:group-hover:translate-x-0" />
+                                <span>Logout</span>
+                            </button>
+                        )}
+
+                        {/* User box */}
+                        {isCollapsed ? (
+                            <Tooltip>
+                                <TooltipTrigger asChild>
+                                    <button
+                                        type="button"
+                                        className="group mt-2 flex h-12 w-full items-center justify-center rounded-xl bg-blue-50 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:bg-blue-100 active:translate-y-0 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 motion-reduce:hover:translate-y-0 motion-reduce:active:scale-100"
+                                    >
+                                        <div className="flex size-8 items-center justify-center rounded-full bg-blue-600 text-xs font-semibold text-white transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110 motion-reduce:group-hover:scale-100">
                                             {initial}
                                         </div>
                                     </button>
@@ -412,7 +422,7 @@ const DashboardSidebarContent = ({
 
                                 <TooltipContent
                                     side="right"
-                                    sideOffset={10}
+                                    sideOffset={22}
                                     className="w-56 rounded-xl border border-slate-200 bg-white p-3 shadow-xl"
                                 >
                                     <p className="truncate text-sm font-semibold text-slate-800">
@@ -428,59 +438,28 @@ const DashboardSidebarContent = ({
                                     </span>
                                 </TooltipContent>
                             </Tooltip>
-
-                            <Tooltip>
-                                <TooltipTrigger asChild>
-                                    <button
-                                        type="button"
-                                        onClick={handleLogout}
-                                        className="flex h-10 w-full items-center justify-center rounded-xl text-white/80 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:bg-white hover:text-red-500 hover:shadow-md active:translate-y-0 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 motion-reduce:hover:translate-y-0 motion-reduce:active:scale-100"
-                                    >
-                                        <LogOut className="size-4" />
-                                    </button>
-                                </TooltipTrigger>
-
-                                <TooltipContent
-                                    side="right"
-                                    sideOffset={10}
-                                    className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-medium text-slate-700 shadow-lg"
-                                >
-                                    Logout
-                                </TooltipContent>
-                            </Tooltip>
-                        </div>
-                    ) : (
-                        <div className="rounded-2xl border border-white/15 bg-white/10 p-3 backdrop-blur-sm transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] animate-in fade-in duration-700 fill-mode-both hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/15 hover:shadow-lg hover:shadow-blue-900/15 motion-reduce:animate-none motion-reduce:hover:translate-y-0">
-                            <div className="flex items-center gap-3">
-                                <div className="flex size-11 shrink-0 items-center justify-center rounded-full bg-white text-sm font-semibold text-blue-700 ring-2 ring-white/30">
+                        ) : (
+                            <div className="mt-2 flex items-center gap-3 rounded-2xl bg-blue-50 p-3 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:bg-blue-100/70 hover:shadow-md hover:shadow-blue-100 motion-reduce:hover:translate-y-0">
+                                <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-semibold text-white ring-2 ring-white">
                                     {initial}
                                 </div>
 
                                 <div className="min-w-0 flex-1">
-                                    <p className="truncate text-sm font-semibold text-white">
+                                    <p className="truncate text-sm font-semibold text-slate-800">
                                         {displayName}
                                     </p>
 
-                                    <p className="mt-0.5 truncate text-xs text-blue-100/80">
+                                    <p className="mt-0.5 truncate text-xs text-slate-500">
                                         {userInfo?.email}
                                     </p>
                                 </div>
 
-                                <span className="shrink-0 rounded-full bg-white/20 px-2 py-1 text-xs font-medium capitalize text-white">
+                                <span className="shrink-0 rounded-full bg-white px-2 py-1 text-[11px] font-medium capitalize text-blue-700 shadow-sm">
                                     {userInfo?.role?.toLowerCase()}
                                 </span>
                             </div>
-
-                            <button
-                                type="button"
-                                onClick={handleLogout}
-                                className="group/logout mt-3 flex h-10 w-full items-center justify-center gap-2 rounded-xl bg-white text-xs font-semibold text-blue-700 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:bg-red-50 hover:text-red-500 hover:shadow-md active:translate-y-0 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 motion-reduce:hover:translate-y-0 motion-reduce:active:scale-100"
-                            >
-                                <LogOut className="size-4 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/logout:translate-x-0.5 motion-reduce:group-hover/logout:translate-x-0" />
-                                Logout
-                            </button>
-                        </div>
-                    )}
+                        )}
+                    </div>
                 </div>
             </aside>
         </TooltipProvider>
